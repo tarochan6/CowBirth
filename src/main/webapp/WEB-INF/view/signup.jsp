@@ -42,9 +42,7 @@
 
 
       <input class="w-100 btn btn-lg btn-primary mb-3" type="submit" value="登録">
-      
-      <a class="w-100 btn btn-lg btn-secondary mb-3" href="<%= request.getContextPath() %>/login">ログイン</a>
-
+       <a href="<%= request.getContextPath() %>/login" class="link-primary">ログインページへ戻る</a>
       </form>
     </div>
   </div>

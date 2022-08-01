@@ -19,7 +19,7 @@
       <div class="alert alert-success mb-3" role="alert">
           ユーザー登録が完了しました。
       </div>
-      <a class="w-100 btn btn-lg btn-primary mb-3" href="<%= request.getContextPath() %>/login">ログインページ</a>
+      <a class="w-100 btn btn-lg btn-primary mb-3" href="<%= request.getContextPath() %>/login">ログインページへ戻る</a>
       </form>
     </div>
   </div>
