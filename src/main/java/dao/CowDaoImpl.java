@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.activation.DataSource;
+import javax.sql.DataSource;
 
 import domain.Cow;
 
@@ -19,56 +19,60 @@ public class CowDaoImpl implements CowDao {
 	}
 
 	@Override
-	public List<Cow> findAll() throws Exception {
-	List<Cow> cowList = new ArrayList<>();
+	public List<Cow> findCowData(int userId) throws Exception {
+	List<Cow> cow = new ArrayList<>();
 	
 	try (Connection con = ds.getConnection()) {
-		String sql ="SELECT cows.id, cows.user_id, cows.name, cows.note, cows.aiday, varietys.name as variety_name,\n"
-				+ "	CASE variety_id\n"
-				+ "				WHEN 1 THEN DATE_ADD(aiday, INTERVAL 10 DAY)\n"
-				+ "				WHEN 2 THEN DATE_ADD(aiday, INTERVAL 30 DAY)\n"
-				+ "				WHEN 3 THEN DATE_ADD(aiday, INTERVAL 60 DAY)\n"
-				+ "				ELSE NULL\n"
-				+ "				end birthday,   \n"
-				+ "                \n"
-				+ "	CASE variety_id\n"
-				+ "				WHEN 1 THEN DATE_ADD(aiday, INTERVAL 15 DAY)\n"
-				+ "				WHEN 2 THEN DATE_ADD(aiday, INTERVAL 35 DAY)\n"
-				+ "				WHEN 3 THEN DATE_ADD(aiday, INTERVAL 65 DAY)\n"
-				+ "				ELSE NULL\n"
-				+ "				end ptday\n"
-				+ "FROM cowbirth_db.cows\n"
-				+ "JOIN varietys ON cows.variety_id = varietys.id\n"
-				+ "WHERE user_id = 2\n"
-				+ "ORDER BY birthday DESC";
+		String sql ="SELECT cows.id, cows.user_id, cows.name, cows.note, cows.aiday, varietys.name as variety_name, CASE variety_id"
+				+ "				WHEN 1 THEN DATE_ADD(aiday, INTERVAL 280 DAY)"
+				+ "				WHEN 2 THEN DATE_ADD(aiday, INTERVAL 285 DAY)"
+				+ "				WHEN 3 THEN DATE_ADD(aiday, INTERVAL 280 DAY)"
+				+ "				ELSE NULL"
+				+ "				end birthday,"
+				+ "	CASE variety_id"
+				+ "				WHEN 1 THEN DATE_ADD(aiday, INTERVAL 28 DAY)"
+				+ "				WHEN 2 THEN DATE_ADD(aiday, INTERVAL 28 DAY)"
+				+ "				WHEN 3 THEN DATE_ADD(aiday, INTERVAL 28 DAY)"
+				+ "				ELSE NULL"
+				+ "				end ptday"
+				+ " FROM cowbirth_db.cows"
+				+ " JOIN varietys ON cows.variety_id = varietys.id"
+				+ " WHERE user_id = ?"
+				+ " ORDER BY birthday ASC";
 		PreparedStatement stmt = con.prepareStatement(sql);
 		stmt.setInt(1, userId);
 		ResultSet rs = stmt.executeQuery();
 		while(rs.next()) {
-			cowList.add(mapToCow(rs));
+			cow.add(mapToCow(rs));
 		}
 		}catch (Exception e) {
 			throw e;
 		}
-		return cowList;
+		return cow;
 	}
 
 	
 
 	@Override
-	public Cow findById(int id, int loginId) throws Exception {
-Cow cow = null;
-try(Connection con = ds.getConnection()){
-	String sql = ;
+	public Cow findById(int id, int userId) throws Exception {
+	Cow cow = null;
+	try(Connection con = ds.getConnection()){
+	String sql ="SELECT * FROM cows WHERE id = ? AND user_id = ?";
 	PreparedStatement stmt = con.prepareStatement(sql);
-	stmt.setInt(1,id);
+	stmt.setInt(1, id);
+	stmt.setInt(2, userId);
 	ResultSet rs = stmt.executeQuery();
 	if(rs.next()) {
 		cow = mapToCow(rs);
 	}
+}catch (Exception e) {
+	throw e;
 }
+return cow;
 	}
 
+
+	
 	@Override
 	public void insert(Cow cows) throws Exception {
 		// TODO 自動生成されたメソッド・スタブ
@@ -82,16 +86,16 @@ try(Connection con = ds.getConnection()){
 	}
 
 	@Override
-	public void delete(int id, int loginId) throws Exception {
+	public void delete(Cow cows) throws Exception {
 		// TODO 自動生成されたメソッド・スタブ
 		
 	}
 	
 	protected Cow mapToCow(ResultSet rs) throws Exception {
 	Cow cow = new Cow();
-	cow.setId((Integer) rs.getObject("id"));
-	cow.setUserId((Integer) rs.getInt("user_id"));
-	cow.setVariety((Integer) rs.getInt("variety_id"));
+	cow.setId(rs.getInt("id"));
+	cow.setUserId(rs.getInt("user_id"));
+	cow.setVariety(rs.getInt("variety_id"));
 	cow.setCowName(rs.getString("name"));
 	cow.setAiDay(rs.getDate("aiday"));
 	cow.setNote(rs.getString("note"));
@@ -100,22 +104,6 @@ try(Connection con = ds.getConnection()){
 	return cow;
 	}
 
-	String sql ="SELECT cows.id, cows.user_id, cows.name, cows.note, cows.aiday, varietys.name as variety_name,"
-					+ "	CASE variety_id"
-					+ "				WHEN 1 THEN DATE_ADD(aiday, INTERVAL 10 DAY)"
-					+ "				WHEN 2 THEN DATE_ADD(aiday, INTERVAL 30 DAY)"
-					+ "				WHEN 3 THEN DATE_ADD(aiday, INTERVAL 60 DAY)"
-					+ "				ELSE NULL"
-					+ "				end birthday,   "
-					+ "	CASE variety_id"
-					+ "				WHEN 1 THEN DATE_ADD(aiday, INTERVAL 15 DAY)"
-					+ "				WHEN 2 THEN DATE_ADD(aiday, INTERVAL 35 DAY)"
-					+ "				WHEN 3 THEN DATE_ADD(aiday, INTERVAL 65 DAY)"
-					+ "				ELSE NULL"
-					+ "				end ptday"
-					+ " FROM cowbirth_db.cows"
-					+ " JOIN varietys ON cows.variety_id = varietys.id"
-					+ " WHERE user_id = 2"
-					+ " ORDER BY birthday DESC";
+
 	
 }
