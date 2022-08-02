@@ -23,24 +23,24 @@ public class CowDaoImpl implements CowDao {
 	List<Cow> cowList = new ArrayList<>();
 	
 	try (Connection con = ds.getConnection()) {
-		String sql = 
-				"SELECT * ,\n"
+		String sql ="SELECT cows.id, cows.user_id, cows.name, cows.note, cows.aiday, varietys.name as variety_name,\n"
 				+ "	CASE variety_id\n"
 				+ "				WHEN 1 THEN DATE_ADD(aiday, INTERVAL 10 DAY)\n"
 				+ "				WHEN 2 THEN DATE_ADD(aiday, INTERVAL 30 DAY)\n"
 				+ "				WHEN 3 THEN DATE_ADD(aiday, INTERVAL 60 DAY)\n"
 				+ "				ELSE NULL\n"
-				+ "				end birthday,                \n"
+				+ "				end birthday,   \n"
+				+ "                \n"
 				+ "	CASE variety_id\n"
 				+ "				WHEN 1 THEN DATE_ADD(aiday, INTERVAL 15 DAY)\n"
 				+ "				WHEN 2 THEN DATE_ADD(aiday, INTERVAL 35 DAY)\n"
 				+ "				WHEN 3 THEN DATE_ADD(aiday, INTERVAL 65 DAY)\n"
 				+ "				ELSE NULL\n"
 				+ "				end ptday\n"
-				+ "                \n"
-				+ "                FROM cowbirth_db.cows\n"
-				+ "				WHERE user_id = ? \n"
-				+ "                ORDER BY birthday DESC";
+				+ "FROM cowbirth_db.cows\n"
+				+ "JOIN varietys ON cows.variety_id = varietys.id\n"
+				+ "WHERE user_id = 2\n"
+				+ "ORDER BY birthday DESC";
 		PreparedStatement stmt = con.prepareStatement(sql);
 		stmt.setInt(1, userId);
 		ResultSet rs = stmt.executeQuery();
@@ -99,5 +99,23 @@ try(Connection con = ds.getConnection()){
 	cow.setPtDay(rs.getDate("ptday"));
 	return cow;
 	}
+
+	String sql ="SELECT cows.id, cows.user_id, cows.name, cows.note, cows.aiday, varietys.name as variety_name,"
+					+ "	CASE variety_id"
+					+ "				WHEN 1 THEN DATE_ADD(aiday, INTERVAL 10 DAY)"
+					+ "				WHEN 2 THEN DATE_ADD(aiday, INTERVAL 30 DAY)"
+					+ "				WHEN 3 THEN DATE_ADD(aiday, INTERVAL 60 DAY)"
+					+ "				ELSE NULL"
+					+ "				end birthday,   "
+					+ "	CASE variety_id"
+					+ "				WHEN 1 THEN DATE_ADD(aiday, INTERVAL 15 DAY)"
+					+ "				WHEN 2 THEN DATE_ADD(aiday, INTERVAL 35 DAY)"
+					+ "				WHEN 3 THEN DATE_ADD(aiday, INTERVAL 65 DAY)"
+					+ "				ELSE NULL"
+					+ "				end ptday"
+					+ " FROM cowbirth_db.cows"
+					+ " JOIN varietys ON cows.variety_id = varietys.id"
+					+ " WHERE user_id = 2"
+					+ " ORDER BY birthday DESC";
 	
 }
