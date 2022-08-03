@@ -11,9 +11,13 @@
 <title>COW CALENDAR</title>
 </head>
 <body>
+
 	<div class="container mt-3">
 		<h1 class="mb-4 d-inline-block">COW CALENDAR</h1>
-
+		
+		<ul>
+			<li><a class="dropdown-item" href="<%=request.getContextPath()%>/logout">ログアウト</a></li>
+		</ul>
 
 		<div id="table-view" class="toggle-display col-12">
 			<table class="table table-bordered table-hover">
