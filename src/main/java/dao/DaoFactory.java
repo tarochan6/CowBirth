@@ -10,10 +10,7 @@ public class DaoFactory {
 		return new UserDaoImpl(getDataSource());
 	}
 		
-	public static VarietyDao createVarietyDao() {
-		return new VarietyDaoImpl(getDataSource());
-	}
-	
+
 	public static CowDao createCowDao() {
 		return new CowDaoImpl(getDataSource());
 	}
