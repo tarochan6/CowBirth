@@ -7,13 +7,15 @@ public class Cow {
 	private Integer id;
 	private Integer userId;
 	private String cowName;
-	private Integer variety;
+	private Integer varietyId;
 	private Date aiDay;
 	private Date birthDay;
 	private Date ptDay;
 	private String note;
+	private String varietyName;
 	
 	
+
 	public Integer getId() {
 		return id;
 	}
@@ -32,12 +34,12 @@ public class Cow {
 	public void setCowName(String cowName) {
 		this.cowName = cowName;
 	}
-	public Integer getVariety() {
-		return variety;
+	public Integer getVarietyId() {
+		return varietyId;
 	}
-	public void setVariety(Integer variety) {
-		this.variety = variety;
-	}a
+	public void setVarietyId(Integer variety) {
+		this.varietyId = variety;
+	}
 	public Date getAiDay() {
 		return aiDay;
 	}
@@ -63,6 +65,11 @@ public class Cow {
 		this.note = note;
 	}
 	
-	
+	public String getVarietyName() {
+		return varietyName;
+	}
+	public void setVarietyName(String varietyName) {
+		this.varietyName = varietyName;
+	}
 	
 }
