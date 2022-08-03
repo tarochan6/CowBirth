@@ -11,12 +11,14 @@
 <title>COW CALENDAR</title>
 </head>
 <body>
+	<c:import url="parts/header.jsp" />
 
 	<div class="container mt-3">
 		<h1 class="mb-4 d-inline-block">COW CALENDAR</h1>
-		
+
 		<ul>
-			<li><a class="dropdown-item" href="<%=request.getContextPath()%>/logout">ログアウト</a></li>
+			<li><a class="dropdown-item"
+				href="<%=request.getContextPath()%>/logout">ログアウト</a></li>
 		</ul>
 
 		<div id="table-view" class="toggle-display col-12">
@@ -29,6 +31,7 @@
 						<th>妊娠鑑定日</th>
 						<th>分娩予定日</th>
 						<th>備考</th>
+						<th>情報の編集</th>
 					</tr>
 				</thead>
 
@@ -41,6 +44,7 @@
 						<td><fmt:formatDate value="${cow.ptDay}" pattern="y-MM-dd" /></td>
 						<td><fmt:formatDate value="${cow.birthDay}" pattern="y-MM-dd" /></td>
 						<td><c:out value="${cow.note}" /></td>
+				<td></td>
 					</tr>
 				</c:forEach>
 
@@ -48,5 +52,32 @@
 		</div>
 	</div>
 
+	<div class="modal fade" id="deleteModal" tabindex="-1"
+		aria-labelledby="modalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-headar">
+
+					<h5 class="modal-title" id="modalLabel">
+						「<span id="itemToDelete"></span>」の削除
+					</h5>
+
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="close"></button>
+				</div>
+				<div class="modal-body">本当に削除してよろしいですか？</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">キャンセル</button>
+					<a id="linkToDelete" class="btn btn-danger" href="">削除する</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/jquery-3.6.0.min.js"></script>
+
+	
 </body>
 </html>

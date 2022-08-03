@@ -86,8 +86,16 @@ return cow;
 	}
 
 	@Override
-	public void delete(Cow cows) throws Exception {
-		// TODO 自動生成されたメソッド・スタブ
+	public void delete(int id, int userId) throws Exception {
+try (Connection con = ds.getConnection()) {
+	String sql = "DELETE FROM cows WHERE id = ? AND user_id =?";
+	PreparedStatement stmt = con.prepareStatement(sql);
+	stmt.setInt(1, id);
+	stmt.setInt(2, userId);
+	stmt.executeUpdate();
+} catch (Exception e) {
+	throw e;
+}
 		
 	}
 	
