@@ -70,7 +70,7 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public User findByLoginIdAndLoginPass(String loginId, String loginPass) throws Exception {
+	public User findByIdAndPass(String loginId, String loginPass) throws Exception {
 	User user = null;
 	try (Connection con = ds.getConnection()){
 		String sql = "SELECT * FROM users WHERE login_id=?";
@@ -89,7 +89,7 @@ public class UserDaoImpl implements UserDao{
 	}
 	protected User mapToUser(ResultSet rs) throws Exception {
 		User user = new User();
-		user.setId((Integer)rs.getObject("id"));
+		user.setId(rs.getInt("id"));
 		user.setLoginId(rs.getString("login_id"));
 		user.setLoginPass(rs.getString("login_pass"));
 		return user;
