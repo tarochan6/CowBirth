@@ -70,7 +70,7 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public User findByLoginIdAndLoginPass(String loginId, String loginPass) throws Exception {
+	public User findByIdAndPass(String loginId, String loginPass) throws Exception {
 	User user = null;
 	try (Connection con = ds.getConnection()){
 		String sql = "SELECT * FROM users WHERE login_id=?";

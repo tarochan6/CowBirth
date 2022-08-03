@@ -45,9 +45,9 @@ public class LoginServlet extends HttpServlet {
 			String loginId = request.getParameter("loginId");
 			String loginPass = request.getParameter("loginPass");
 			UserDao userDao = DaoFactory.createUserDao();
-			User user = userDao.findByLoginIdAndLoginPass(loginId, loginPass);
+			User user = userDao.findByIdAndPass(loginId, loginPass);
 			if(user != null) {
-				request.getSession().setAttribute("loginId", user.getLoginId());
+				request.getSession().setAttribute("user", user);
 				response.sendRedirect("index");
 			} else {
 				request.setAttribute("error", true);

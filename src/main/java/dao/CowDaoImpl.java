@@ -23,7 +23,7 @@ public class CowDaoImpl implements CowDao {
 	List<Cow> cow = new ArrayList<>();
 	
 	try (Connection con = ds.getConnection()) {
-		String sql ="SELECT cows.id, cows.user_id, cows.name, cows.note, cows.aiday, varietys.name as variety_name, CASE variety_id"
+		String sql ="SELECT cows.id, cows.user_id,  variety_id, cows.name, cows.note, cows.aiday, varietys.name as variety_name, CASE variety_id"
 				+ "				WHEN 1 THEN DATE_ADD(aiday, INTERVAL 280 DAY)"
 				+ "				WHEN 2 THEN DATE_ADD(aiday, INTERVAL 285 DAY)"
 				+ "				WHEN 3 THEN DATE_ADD(aiday, INTERVAL 280 DAY)"
@@ -95,12 +95,13 @@ return cow;
 	Cow cow = new Cow();
 	cow.setId(rs.getInt("id"));
 	cow.setUserId(rs.getInt("user_id"));
-	cow.setVariety(rs.getInt("variety_id"));
+	cow.setVarietyId(rs.getInt("variety_id"));
 	cow.setCowName(rs.getString("name"));
 	cow.setAiDay(rs.getDate("aiday"));
 	cow.setNote(rs.getString("note"));
 	cow.setBirthDay(rs.getDate("birthday"));
 	cow.setPtDay(rs.getDate("ptday"));
+	cow.setVarietyName(rs.getString("variety_name"));
 	return cow;
 	}
 

@@ -12,7 +12,7 @@ public interface UserDao {
 	void update(User user) throws Exception;
 	void delete(User user) throws Exception;
 	
-	User findByLoginIdAndLoginPass(String loginId, String loginPass) throws Exception;
+	User findByIdAndPass(String loginId, String loginPass) throws Exception;
 
 	
 	
