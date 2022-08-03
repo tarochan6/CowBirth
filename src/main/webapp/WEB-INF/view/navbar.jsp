@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="logo navbar-brand" href="<%= request.getContextPath() %>/user/base">My Health</a>
+      <a class="logo navbar-brand" href="<%= request.getContextPath() %>/user/base">COW CALENDAR</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -13,10 +13,9 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
              
 
-              <c:out value="${user.name}" /> さん
+              <c:out value="${user.loginId}" /> さん
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="<%= request.getContextPath() %>/user/base">基本情報</a></li>
               <li><a class="dropdown-item" href="<%= request.getContextPath() %>/logout">ログアウト</a></li>
             </ul>
           </li>

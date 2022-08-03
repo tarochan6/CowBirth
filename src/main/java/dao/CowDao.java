@@ -12,7 +12,7 @@ public interface CowDao {
 	
 	void insert(Cow cows) throws Exception; 
 	void update(Cow cows) throws Exception; 
-	void delete(Cow cows) throws Exception;
+	void delete(int id,int userId) throws Exception;
 
 
 	
