@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.activation.DataSource;
+import javax.sql.DataSource;
 
 import domain.Variety;
 
@@ -14,9 +14,9 @@ public class VarietyCowDaoImpl implements VarietyCowDao {
 
 	private DataSource ds;
 
-	public VarietyCowDaoImpl(DataSource ds) {
-		this.ds = ds;
-	}
+public VarietyCowDaoImpl(DataSource ds) {
+	this.ds = ds;
+}
 
 	@Override
 	public List<Variety> findAll() throws Exception {
@@ -28,7 +28,10 @@ public class VarietyCowDaoImpl implements VarietyCowDao {
 			while (rs.next()) {
 				varietyList.add(mapToVariety(rs));
 			}
+		} catch (Exception e) {
+			throw e;
 		}
+		return varietyList;
 	}
 
 	@Override
