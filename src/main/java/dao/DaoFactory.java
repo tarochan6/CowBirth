@@ -15,7 +15,10 @@ public class DaoFactory {
 		return new CowDaoImpl(getDataSource());
 	}
 
-	
+		public static VarietyCowDao createVarietyCowDao() {
+			return new VarietyCowDaoImpl(getDataSource());
+	}
+		
 	
 	private static DataSource getDataSource() {
 		InitialContext ctx = null;
@@ -36,4 +39,7 @@ public class DaoFactory {
 		}
 		return ds;
 	}
+
+
+
 }

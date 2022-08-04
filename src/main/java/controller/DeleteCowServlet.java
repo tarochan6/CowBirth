@@ -14,7 +14,7 @@ import domain.User;
 /**
  * Servlet implementation class DeleteCowServlet
  */
-@WebServlet("/DeleteCowServlet")
+@WebServlet("/deleteCow")
 public class DeleteCowServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
