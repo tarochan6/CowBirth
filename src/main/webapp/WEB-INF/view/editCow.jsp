@@ -13,57 +13,72 @@
 <body>
 	<c:import url="parts/header.jsp" />
 
+
+
 	<div class="container mt-3">
 		<h1>情報変更</h1>
 		<div class="row">
 			<div class="col-md-12">
 				<form action="" method="post">
-					
+
 					<div class="form-group mb-3">
 						<label for="formName">名号</label> <input type="text" name="name"
 							id="formName" class="form-control"
-							value="<c:out value="${name}" />" />
+							value="<c:out value="${cow.cowName}" />" />
 						<!-- <c:if test="${!empty nameError}">
 							<div class="alert alert-danger mt-1" role="alert">
 								<c:out value="${nameError}" />
 							</div>
 						</c:if> -->
-						
+
 					</div>
 
 					<div class="form-group mb-3">
-						<label for="formLocation">品種</label> <select name="varietyId"
-							id="formLocation" class="form-control">
-							<c:forEach items="${varietyList}" var="location">
+						<label for="formVariety">品種</label> <select name="varietysId"
+							id="formVariety" class="form-control">
+							<c:forEach items="${varietyList}" var="variety">
 								<option value="<c:out value="${variety.id}" />"
-									<c:out value="${variety.id == locationId ? 'selected' : ''}" />>
+									<c:out value="${variety.id == varietyId ? 'selected' : ''}" />>
 									<c:out value="${variety.name}" />
 								</option>
 							</c:forEach>
 						</select>
 					</div>
 
+
 					<div class="form-group mb-3">
-						<label for="formAmount">AI日</label> <input type="date"
-							name="aiday" id="formAiday" class="form-control"
-							value="<c:out value="${aiday}" />" />
+						<label for="formLocation">場所</label> <select name="locationId"
+							id="formLocation" class="form-control">
+							<c:forEach items="${locationList}" var="location">
+								<option value="<c:out value="${id}" />"
+									<c:out value="${location.id == locationId ? 'selected' : ''}" />>
+									<c:out value="${location.name}" />
+								</option>
+							</c:forEach>
+						</select>
+					</div>
+
+					<div class="form-group mb-3">
+						<label for="formAiday">AI日</label> <input type="date" name="aiday"
+							id="formAiday" class="form-control"
+							value="<c:out value="${cow.aiDay}" />" />
 						<!-- 	<c:if test="${!empty amountError}">
 							<div class="alert alert-danger mt-1" role="alert">
 								<c:out value="${amountError}" />
 							</div>
 						</c:if> -->
-					
+
 					</div>
 
 
 					<div class="form-group mb-3">
 						<label for="formNote">備考</label>
 						<textarea name="note" id="formNote" class="form-control"><c:out
-								value="${note}" /></textarea>
+								value="${cow.note}" /></textarea>
 					</div>
 
 					<div class="form-group">
-						<input type="submit" class="btn btn-primary" value="登録" /> <a
+						<input type="submit" class="btn btn-primary" value="変更" /> <a
 							href="index" class="btn btn-secondary">キャンセル</a>
 					</div>
 				</form>
