@@ -31,7 +31,7 @@
 						<th>妊娠鑑定日</th>
 						<th>分娩予定日</th>
 						<th>備考</th>
-						<th>情報の編集</th>
+						<th colspan="2">情報の編集</th>
 					</tr>
 				</thead>
 
@@ -40,11 +40,14 @@
 					<tr class="align-middle">
 						<td><c:out value="${cow.cowName}" /></td>
 						<td><c:out value="${cow.varietyName}" /></td>
-						<td><fmt:formatDate value="${cow.aiDay}" pattern="y-MM-dd" /></td>
-						<td><fmt:formatDate value="${cow.ptDay}" pattern="y-MM-dd" /></td>
-						<td><fmt:formatDate value="${cow.birthDay}" pattern="y-MM-dd" /></td>
+						<td><fmt:formatDate value="${cow.aiDay}" pattern="y年MM月dd日" /></td>
+						<td><fmt:formatDate value="${cow.ptDay}" pattern="y年MM月dd日" /></td>
+						<td><fmt:formatDate value="${cow.birthDay}" pattern="y年MM月dd日" /></td>
 						<td><c:out value="${cow.note}" /></td>
-				<td></td>
+						<td><a class="btn btn-warning"
+							href="editCow?id=<c:out value="${cow.id}" />">編集</a></td>
+
+						<td></td>
 					</tr>
 				</c:forEach>
 
@@ -78,6 +81,6 @@
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/jquery-3.6.0.min.js"></script>
 
-	
+
 </body>
 </html>
