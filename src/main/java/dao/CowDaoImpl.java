@@ -18,6 +18,8 @@ public class CowDaoImpl implements CowDao {
 		this.ds = ds;
 	}
 
+	
+	
 	@Override
 	public List<Cow> findCowData(int userId) throws Exception {
 		List<Cow> cow = new ArrayList<>();
