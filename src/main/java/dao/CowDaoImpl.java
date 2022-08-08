@@ -94,7 +94,22 @@ public class CowDaoImpl implements CowDao {
 
 	@Override
 	public void update(Cow cows) throws Exception {
-		// TODO 自動生成されたメソッド・スタブ
+		
+		try (Connection con = ds.getConnection()) {
+			String sql = "UPDATE cows SET "
+					+ " variety_id = ?, name = ?, aiday = ?, note = ? "
+					+ " WHERE id = ? AND user_id = ?";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setInt(1, cows.getVarietyId());
+			stmt.setString(2, cows.getCowName());
+			stmt.setDate(3, new java.sql.Date(cows.getAiDay().getTime()));
+			stmt.setString(4, cows.getNote());
+			stmt.setInt(5, cows.getId());
+			stmt.setInt(6, cows.getUserId());
+			stmt.executeUpdate();
+		} catch (Exception e) {
+			throw e;
+		}
 
 	}
 

@@ -52,9 +52,9 @@ public class EditCowSevlet extends HttpServlet {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
 		cows.setId(Integer.parseInt(request.getParameter("id")));
-		cows.setUserId(Integer.parseInt(request.getParameter("user_id")));
+		cows.setUserId(Integer.parseInt(request.getParameter("userId")));
 		cows.setCowName(request.getParameter("name"));
-		cows.setVarietyId(Integer.parseInt(request.getParameter("varietysId")));
+		cows.setVarietyId(Integer.parseInt(request.getParameter("varietyId")));
 		cows.setNote(request.getParameter("note"));
 		try {
 			cows.setAiDay(sdf.parse(request.getParameter("aiday")));
@@ -64,12 +64,12 @@ public class EditCowSevlet extends HttpServlet {
 
 		try {
 			DaoFactory.createCowDao().update(cows);
-			request.getRequestDispatcher("/WEB-INF/view/editCowDone.jsp").forward(request, response);
+			//request.getRequestDispatcher("/WEB-INF/view/editCowDone.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		//response.sendRedirect(request.getContextPath() + "/index");
+		response.sendRedirect(request.getContextPath() + "/index");
 
 	}
 }
