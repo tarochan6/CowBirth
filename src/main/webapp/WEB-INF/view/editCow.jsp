@@ -34,7 +34,7 @@
 					</div>
 
 					<div class="form-group mb-3">
-						<label for="formVariety">品種</label> <select name="varietysId"
+						<label for="formVariety">品種</label> <select name="variety_Id"
 							id="formVariety" class="form-control">
 							<c:forEach items="${varietyList}" var="variety">
 								<option value="<c:out value="${variety.id}" />"
@@ -45,18 +45,6 @@
 						</select>
 					</div>
 
-
-					<div class="form-group mb-3">
-						<label for="formLocation">場所</label> <select name="locationId"
-							id="formLocation" class="form-control">
-							<c:forEach items="${locationList}" var="location">
-								<option value="<c:out value="${id}" />"
-									<c:out value="${location.id == locationId ? 'selected' : ''}" />>
-									<c:out value="${location.name}" />
-								</option>
-							</c:forEach>
-						</select>
-					</div>
 
 					<div class="form-group mb-3">
 						<label for="formAiday">AI日</label> <input type="date" name="aiday"
@@ -78,8 +66,11 @@
 					</div>
 
 					<div class="form-group">
+						<input name="id" type="hidden" value="<c:out value="${cow.id}" />">
+          				<input name="user_id" type="hidden" value="<c:out value="${cow.userId}" />">
 						<input type="submit" class="btn btn-primary" value="変更" /> <a
-							href="index" class="btn btn-secondary">キャンセル</a>
+							href="<%= request.getContextPath() %>/index" class="btn btn-secondary">キャンセル</a>
+							
 					</div>
 				</form>
 			</div>

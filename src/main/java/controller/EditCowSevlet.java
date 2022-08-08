@@ -48,25 +48,28 @@ public class EditCowSevlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Cow cow = new Cow();
+		Cow cows = new Cow();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-		cow.setCowName(request.getParameter("name"));
-		cow.setVarietyId(Integer.parseInt(request.getParameter("variety_id")));
-		cow.setNote(request.getParameter("note"));
+		
+		cows.setId(Integer.parseInt(request.getParameter("id")));
+		cows.setUserId(Integer.parseInt(request.getParameter("user_id")));
+		cows.setCowName(request.getParameter("name"));
+		cows.setVarietyId(Integer.parseInt(request.getParameter("varietysId")));
+		cows.setNote(request.getParameter("note"));
 		try {
-			cow.setAiDay(sdf.parse(request.getParameter("aiday")));
+			cows.setAiDay(sdf.parse(request.getParameter("aiday")));
 		} catch (ParseException e) {
 			throw new ServletException(e);
 		}
 
 		try {
-			DaoFactory.createCowDao().update(cow);
+			DaoFactory.createCowDao().update(cows);
+			request.getRequestDispatcher("/WEB-INF/view/editCowDone.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		response.sendRedirect("request.getContextPath() + /index");
+		//response.sendRedirect(request.getContextPath() + "/index");
 
 	}
 }
