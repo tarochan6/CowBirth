@@ -45,9 +45,10 @@
 						<td><fmt:formatDate value="${cow.birthDay}" pattern="y年MM月dd日" /></td>
 						<td><c:out value="${cow.note}" /></td>
 						<td><a class="btn btn-warning"
-							href="editCow?id=<c:out value="${cow.id}" />">編集</a></td>
+							href="editCow?id=<c:out value="${cow.id}" />">編集</a>
 
-						<td></td>
+						<button class="btn btn-danger delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-href="<%= request.getContextPath() %>/user/deleteRecord?id=<c:out value="${record.id}" />">削除</button>
+						</td>
 					</tr>
 				</c:forEach>
 
@@ -77,6 +78,7 @@
 			</div>
 		</div>
 	</div>
+	
 
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/jquery-3.6.0.min.js"></script>
