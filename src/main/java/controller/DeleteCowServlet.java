@@ -37,7 +37,7 @@ try {
 } catch (Exception e) {
 	e.printStackTrace();
 }
-response.sendRedirect(request.getContextPath() + "/user/showRecord");
+response.sendRedirect(request.getContextPath() + "/user/index");
 	}
 
 }
