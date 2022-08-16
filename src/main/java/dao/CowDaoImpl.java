@@ -132,7 +132,7 @@ public class CowDaoImpl implements CowDao {
 	@Override
 	public void delete(int id, int userId) throws Exception {
 		try (Connection con = ds.getConnection()) {
-			String sql = "DELETE FROM cows WHERE id = ? AND user_id =?";
+			String sql = "DELETE FROM cows WHERE id = ? AND user_id = ?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setInt(1, id);
 			stmt.setInt(2, userId);
