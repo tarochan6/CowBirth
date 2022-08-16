@@ -20,6 +20,8 @@
 			<li><a class="dropdown-item"
 				href="<%=request.getContextPath()%>/logout">ログアウト</a></li>
 		</ul>
+    <a class="btn btn-success mb-4 mt-2 ms-4" href="<%=request.getContextPath()%>/addCow">新規牛登録</a>
+    
 
 		<div id="table-view" class="toggle-display col-12">
 			<table class="table table-bordered table-hover">
@@ -47,7 +49,7 @@
 						<td><a class="btn btn-warning"
 							href="editCow?id=<c:out value="${cow.id}" />">編集</a>
 
-						<button class="btn btn-danger delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-href="<%= request.getContextPath() %>/user/deleteRecord?id=<c:out value="${record.id}" />">削除</button>
+						<button class="btn btn-danger delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-href="<%= request.getContextPath() %>index?id=<c:out value="${cow.id}" />">削除</button>
 						</td>
 					</tr>
 				</c:forEach>
@@ -63,7 +65,7 @@
 				<div class="modal-headar">
 
 					<h5 class="modal-title" id="modalLabel">
-						「<span id="itemToDelete"></span>」の削除
+						「<span id="modal-date"></span>」の削除
 					</h5>
 
 					<button type="button" class="btn-close" data-bs-dismiss="modal"

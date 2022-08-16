@@ -21,7 +21,7 @@ import domain.Variety;
 /**
  * Servlet implementation class AddCowServlet
  */
-@WebServlet("/AddCowServlet")
+@WebServlet("/addCow")
 public class AddCowServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -70,10 +70,11 @@ try {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Cow cows = new Cow();
-		SimpleDateFormat sdf = new SimpleDateFormat();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		User user = (User) request.getSession().getAttribute("user");
 		
-		cows.setId(Integer.parseInt(request.getParameter("id")));
-		cows.setUserId(Integer.parseInt(request.getParameter("userId")));
+		//cows.setUserId(Integer.parseInt(request.getParameter("userId")));
+		cows.setUserId(user.getId());
 		cows.setCowName(request.getParameter("name"));
 		cows.setVarietyId(Integer.parseInt(request.getParameter("varietyId")));
 		cows.setNote(request.getParameter("note"));

@@ -68,7 +68,7 @@
 					<div class="form-group">
 						<input name="id" type="hidden" value="<c:out value="${cow.id}" />">
           				<input name="userId" type="hidden" value="<c:out value="${cow.userId}" />">
-						<input type="submit" class="btn btn-primary" value="変更" /> <a
+						<input type="submit" class="btn btn-primary" value="登録" /> <a
 							href="<%= request.getContextPath() %>/index" class="btn btn-secondary">キャンセル</a>
 							
 					</div>
