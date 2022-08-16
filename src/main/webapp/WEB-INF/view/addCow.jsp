@@ -7,29 +7,22 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <c:import url="parts/commonCss.jsp" />
-<title>情報の変更</title>
+<title>牛の登録</title>
 </head>
 <body>
 	<c:import url="parts/header.jsp" />
 
-
-
 	<div class="container mt-3">
-		<h1>情報変更</h1>
+		<h1>牛の登録</h1>
 		<div class="row">
 			<div class="col-md-12">
 				<form action="" method="post">
 
+
 					<div class="form-group mb-3">
 						<label for="formName">名号</label> <input type="text" name="name"
 							id="formName" class="form-control"
-							value="<c:out value="${cow.cowName}" />" />
-						<!-- <c:if test="${!empty nameError}">
-							<div class="alert alert-danger mt-1" role="alert">
-								<c:out value="${nameError}" />
-							</div>
-						</c:if> -->
-
+							value="" />
 					</div>
 
 					<div class="form-group mb-3">
@@ -48,28 +41,17 @@
 					<div class="form-group mb-3">
 						<label for="formAiday">AI日</label> <input type="date" name="aiday"
 							id="formAiday" class="form-control"
-							value="<c:out value="${cow.aiDay}" />" />
-						<!-- 	<c:if test="${!empty amountError}">
-							<div class="alert alert-danger mt-1" role="alert">
-								<c:out value="${amountError}" />
-							</div>
-						</c:if> -->
-
+							value="" />
 					</div>
-
 
 					<div class="form-group mb-3">
 						<label for="formNote">備考</label>
-						<textarea name="note" id="formNote" class="form-control"><c:out
-								value="${cow.note}" /></textarea>
+						<textarea name="note" id="formNote" class="form-control"></textarea>
 					</div>
 
 					<div class="form-group">
-						<input name="id" type="hidden" value="<c:out value="${cow.id}" />">
-          				<input name="userId" type="hidden" value="<c:out value="${cow.userId}" />">
 						<input type="submit" class="btn btn-primary" value="登録" /> <a
 							href="<%= request.getContextPath() %>/index" class="btn btn-secondary">キャンセル</a>
-							
 					</div>
 				</form>
 			</div>

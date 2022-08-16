@@ -90,7 +90,21 @@ public class CowDaoImpl implements CowDao {
 
 	@Override
 	public void insert(Cow cows) throws Exception {
-		// TODO 自動生成されたメソッド・スタブ
+
+		try (Connection con = ds.getConnection()) {
+			String sql = "INSERT INTO cows "
+					+ " (user_id, variety_id, name, aiday, note) "
+					+ " VALUES (?, ?, ?, ?, ?)";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setInt(1, cows.getUserId());
+			stmt.setInt(2, cows.getVarietyId());
+			stmt.setString(3, cows.getCowName());
+			stmt.setDate(4, new java.sql.Date(cows.getAiDay().getTime()));
+			stmt.setString(5, cows.getNote());
+			stmt.executeLargeUpdate();
+		}catch (Exception e) {
+			throw e;
+		}
 
 	}
 
@@ -118,7 +132,7 @@ public class CowDaoImpl implements CowDao {
 	@Override
 	public void delete(int id, int userId) throws Exception {
 		try (Connection con = ds.getConnection()) {
-			String sql = "DELETE FROM cows WHERE id = ? AND user_id =?";
+			String sql = "DELETE FROM cows WHERE id = ? AND user_id = ?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setInt(1, id);
 			stmt.setInt(2, userId);
