@@ -4,6 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+	
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <c:import url="parts/commonCss.jsp" />
@@ -13,7 +17,7 @@
 	<c:import url="parts/header.jsp" />
 
 	<div class="container mt-3">
-		<h1>牛の登録</h1>
+		<h1>新規牛データの登録</h1>
 		<div class="row">
 			<div class="col-md-12">
 				<form action="" method="post">

@@ -25,7 +25,7 @@
 			<h1 class="mb-4 d-inline-block">分娩予定牛一覧</h1>
 
 			<a class="btn btn-outline-success mx-3"
-				href="<%=request.getContextPath()%>/addCow">新規牛登録</a>
+				href="<%=request.getContextPath()%>/addCow">新規牛データ登録</a>
 		</div>
 
 		<div id="table-view" class="toggle-display col-12">
