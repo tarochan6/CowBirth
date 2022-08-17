@@ -13,7 +13,7 @@
 	<c:import url="parts/header.jsp" />
 
 	<div class="container mt-3">
-		<h1 class="mb-4 d-inline-block">COW CALENDAR</h1>
+		<h1 class="mb-4 d-inline-block">分娩予定牛一覧</h1>
 
 
 		<a class="btn btn-success mb-4 mt-2 ms-4"
@@ -30,7 +30,7 @@
 						<th>妊娠鑑定日</th>
 						<th>分娩予定日</th>
 						<th>備考</th>
-						<th colspan="2">情報の編集</th>
+						<th colspan="2">データの編集</th>
 					</tr>
 				</thead>
 

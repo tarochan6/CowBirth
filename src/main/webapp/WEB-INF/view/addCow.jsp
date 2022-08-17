@@ -7,7 +7,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <c:import url="parts/commonCss.jsp" />
-<title>牛の登録</title>
+<title>新規牛データ登録</title>
 </head>
 <body>
 	<c:import url="parts/header.jsp" />
