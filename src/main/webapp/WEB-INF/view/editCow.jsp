@@ -15,7 +15,7 @@
 
 
 	<div class="container mt-3">
-		<h1>情報変更</h1>
+		<h1>牛データの編集</h1>
 		<div class="row">
 			<div class="col-md-12">
 				<form action="" method="post">
@@ -67,7 +67,7 @@
 					<div class="form-group">
 						<input name="id" type="hidden" value="<c:out value="${cow.id}" />">
           				<input name="userId" type="hidden" value="<c:out value="${cow.userId}" />">
-						<input type="submit" class="btn btn-primary" value="登録" /> <a
+						<input type="submit" class="btn btn-primary" value="編集" /> <a
 							href="<%= request.getContextPath() %>/index" class="btn btn-secondary">キャンセル</a>
 							
 					</div>

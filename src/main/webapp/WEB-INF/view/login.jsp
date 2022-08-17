@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,7 +18,7 @@
 		<div class="row">
 			<div class="col-lg-4 offset-lg-4">
 				<form action="" method="post">
-			  <h1 class="logo text-center mb-3 fw-normal">Cow Calendar</h1>
+			  <h1 class="logo text-center mb-3 fw-normal"><i class="fa-solid fa-cow"></i>Cow Calendar</h1>
 					<c:if test="${error}">
 						<div class="alert alert-danger" role="alert">
 							ログインIDまたはパスワードが間違っています。</div>

@@ -4,31 +4,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <c:import url="parts/commonCss.jsp" />
-<title>COW CALENDAR</title>
+
+<link rel="icon" href="favicon.ico">
+
+<title>Cow Calendar</title>
 </head>
 <body>
+
 	<c:import url="parts/header.jsp" />
 
 	<div class="container mt-3">
 		<h1 class="mb-4 d-inline-block">分娩予定牛一覧</h1>
 
-
-		<a class="btn btn-success mb-4 mt-2 ms-4"
-			href="<%=request.getContextPath()%>/addCow">新規牛登録</a>
-
+	
+			<a class="btn btn-outline-success mb-4 mt-2 ms-4"
+				href="<%=request.getContextPath()%>/addCow">新規牛登録</a>
+		
 
 		<div id="table-view" class="toggle-display col-12">
-			<table class="table table-bordered table-hover">
+			<table class="table table-bordered table-hover" id="fav-table">
 				<thead id="record-head">
-					<tr class="bg-light">
-						<th>名号(牛の名前)</th>
-						<th>品種</th>
-						<th>AI日</th>
-						<th>妊娠鑑定日</th>
-						<th>分娩予定日</th>
+					<tr class="bg-light text-center">
+						<th>名号(牛の名前)　<i class="fa-solid fa-sort"></i></th>
+						<th>品種　<i class="fa-solid fa-sort"></i></th>
+						<th>AI日　<i class="fa-solid fa-sort"></i></th>
+						<th>妊娠鑑定日　<i class="fa-solid fa-sort"></i></th>
+						<th>分娩予定日　<i class="fa-solid fa-sort"></i></th>
 						<th>備考</th>
 						<th colspan="2">データの編集</th>
 					</tr>
@@ -44,10 +52,11 @@
 						<td><fmt:formatDate value="${cow.birthDay}"
 								pattern="y年MM月dd日" /></td>
 						<td><c:out value="${cow.note}" /></td>
-						<td><a class="btn btn-warning"
+						<td><a class="btn btn-outline-primary"
 							href="<%= request.getContextPath() %>/editCow?id=<c:out value="${cow.id}" />">編集</a>
 
-							<button class="btn btn-danger delete" data-bs-toggle="modal"
+							<button class="btn btn-outline-danger delete" data-bs-toggle="modal"
+						
 								data-bs-target="#deleteModal"
 								data-href="<%= request.getContextPath() %>/deleteCow?id=<c:out value="${cow.id}" />">削除</button>
 						</td>
@@ -93,6 +102,12 @@
 	<c:import url="parts/commonJs.jsp" />
 	<script src="<%=request.getContextPath()%>/js/chart-3.8.0.min.js"></script>
 
+	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
+
+
 	<script>
 		// 削除ボタン
 		$(document).ready(
@@ -106,6 +121,13 @@
 								$('#modal-date').text(date);
 							});
 				});
+	</script>
+
+	<script>
+		//テーブルのソート
+		$(document).ready(function() {
+			$('#fav-table').tablesorter();
+		});
 	</script>
 
 </body>
