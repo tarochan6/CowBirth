@@ -37,7 +37,7 @@
 							for="floatingPassword">パスワード</label>
 					</div>
 
-					<input class="w-100 btn btn-lg btn-primary mb-3" type="submit"
+					<input class="w-100 btn btn-lg btn-primary mb-3 " type="submit"
 						value="ログイン">
 						
 					<div class="text-center"><a class="link-primary" href="<%= request.getContextPath() %>/signup">ユーザー登録を行う</a></div>
