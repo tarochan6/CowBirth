@@ -14,7 +14,7 @@
   <div class="row">
     <div class="col-lg-4 offset-lg-4">
       <form action="" method="post">
-      <h1 class="logo text-center mb-3 fw-normal">COW CALENDAR</h1>
+      <h1 class="logo text-center mb-3 fw-normal">Cow Calendar</h1>
       <h2 class="text-center">ユーザー登録</h2>
       <c:if test="${!empty errors}">
       <div class="alert alert-danger" role="alert">
@@ -42,7 +42,7 @@
 
 
       <input class="w-100 btn btn-lg btn-primary mb-3" type="submit" value="登録">
-       <a href="<%= request.getContextPath() %>/login" class="link-primary">ログインページへ戻る</a>
+       <div class="text-center"><a href="<%= request.getContextPath() %>/login" class="link-primary">ログインページへ戻る</a></div>
       </form>
     </div>
   </div>

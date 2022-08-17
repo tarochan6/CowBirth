@@ -7,16 +7,16 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <c:import url="parts/commonCss.jsp" />
-<title>COW CALENDAR</title>
+<title>牛データの編集完了</title>
 </head>
 <body>
 <c:import url="parts/header.jsp" />
 
 <div class="container mt-3">
-  <h1>編集完了</h1>
+  <h1>牛データの編集完了</h1>
   <div class="row">
     <div class="col-md-12">
-      <p>情報の編集が完了しました。</p>
+      <p>牛データの編集が完了しました。</p>
       <p><a href="index">インデックスに戻る</a></p>
     </div>
   </div>
