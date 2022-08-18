@@ -32,11 +32,11 @@
 			<table class="table table-bordered table-hover" id="fav-table">
 				<thead id="record-head">
 					<tr class="bg-light text-center">
-						<th>名号(牛の名前) <i class="fa-solid fa-sort"></i></th>
-						<th>品種 <i class="fa-solid fa-sort"></i></th>
+						<th>牛の名前 <i class="fa-solid fa-sort"></i></th>
 						<th>AI日 <i class="fa-solid fa-sort"></i></th>
-						<th>妊娠鑑定日 <i class="fa-solid fa-sort"></i></th>
+						<th>妊娠鑑定可能日 <i class="fa-solid fa-sort"></i></th>
 						<th>分娩予定日 <i class="fa-solid fa-sort"></i></th>
+						<th>品種 <i class="fa-solid fa-sort"></i></th>
 						<th>備考</th>
 						<th colspan="2">データの編集</th>
 					</tr>
@@ -46,11 +46,12 @@
 				<c:forEach items="${cows}" var="cow">
 					<tr class="align-middle text-center">
 						<td><c:out value="${cow.cowName}" /></td>
-						<td><c:out value="${cow.varietyName}" /></td>
-						<td><fmt:formatDate value="${cow.aiDay}" pattern="y年MM月dd日" /></td>
-						<td><fmt:formatDate value="${cow.ptDay}" pattern="y年MM月dd日" /></td>
+
+						<td><fmt:formatDate value="${cow.aiDay}" pattern="y年MM月dd日(E)" /></td>
+						<td><fmt:formatDate value="${cow.ptDay}" pattern="y年MM月dd日(E)" /></td>
 						<td><fmt:formatDate value="${cow.birthDay}"
-								pattern="y年MM月dd日" /></td>
+								pattern="y年MM月dd日(E)" /></td>
+						<td><c:out value="${cow.varietyName}" /></td>
 						<td><c:out value="${cow.note}" /></td>
 						<td><a class="btn btn-outline-primary"
 							href="<%= request.getContextPath() %>/editCow?id=<c:out value="${cow.id}" />">編集</a>

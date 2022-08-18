@@ -25,7 +25,7 @@
 				<form action="" method="post">
 
 					<div class="form-group mb-3">
-						<label for="formName">名号</label> <input type="text" name="name"
+						<label for="formName">牛の名前</label> <input type="text" name="name"
 							id="formName" class="form-control"
 							value="<c:out value="${cow.cowName}" />" />
 						<!-- <c:if test="${!empty nameError}">
