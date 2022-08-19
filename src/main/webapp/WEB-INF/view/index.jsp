@@ -5,20 +5,28 @@
 <html>
 <head>
 
+<c:import url="parts/commonCss.jsp" />
+<c:import url="parts/commonJs.jsp" />
+
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 
+
+<script src="<%=request.getContextPath()%>/js/chart-3.8.0.min.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<c:import url="parts/commonCss.jsp" />
-
-<link rel="icon" href="favicon.ico">
 
 <title>Cow Calendar</title>
 </head>
 <body>
 
 	<c:import url="parts/header.jsp" />
+
 
 	<div class="container mt-3">
 		<div class="d-flex justify-content-between align-items-start">
@@ -38,7 +46,7 @@
 						<th>分娩予定日 <i class="fa-solid fa-sort"></i></th>
 						<th>品種 <i class="fa-solid fa-sort"></i></th>
 						<th>備考</th>
-						<th colspan="2">データの編集</th>
+						<th colspan="2" id="cowdate">データの編集</th>
 					</tr>
 				</thead>
 
@@ -47,8 +55,10 @@
 					<tr class="align-middle text-center">
 						<td><c:out value="${cow.cowName}" /></td>
 
-						<td><fmt:formatDate value="${cow.aiDay}" pattern="y年MM月dd日(E)" /></td>
-						<td><fmt:formatDate value="${cow.ptDay}" pattern="y年MM月dd日(E)" /></td>
+						<td><fmt:formatDate value="${cow.aiDay}"
+								pattern="y年MM月dd日(E)" /></td>
+						<td><fmt:formatDate value="${cow.ptDay}"
+								pattern="y年MM月dd日(E)" /></td>
 						<td><fmt:formatDate value="${cow.birthDay}"
 								pattern="y年MM月dd日(E)" /></td>
 						<td><c:out value="${cow.varietyName}" /></td>
@@ -66,6 +76,12 @@
 			</table>
 		</div>
 
+		<div class="ms-auto p-2 bd-highlight mt-3" id="insatsu">
+			<button type="button" class="btn btn-outline-dark"
+				onclick="window.print();">データを印刷する</button>
+		</div>
+
+
 		<div id="weight-view" class="toggle-display hide">
 			<canvas id="weight-chart"></canvas>
 		</div>
@@ -74,6 +90,7 @@
 			<canvas id="exercise-chart"></canvas>
 		</div>
 	</div>
+
 
 	<div class="modal fade" id="deleteModal" tabindex="-1"
 		aria-labelledby="modalLabel" aria-hidden="true">
@@ -98,22 +115,10 @@
 		</div>
 	</div>
 
-
-	<c:import url="parts/commonJs.jsp" />
-	<script src="<%=request.getContextPath()%>/js/chart-3.8.0.min.js"></script>
-
-	<script type="text/javascript"
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
-
-
 	<script>
 		// 削除ボタン
-		$(document).ready(
-				function() {
-					$('button.delete').click(
-							function() {
+		$(document).ready(function() {
+					$('button.delete').click(function() {
 								const date = $(this).parent().parent()
 										.children('td:first-child').text();
 								$('#delete-link').attr('href',
@@ -121,13 +126,21 @@
 								$('#modal-date').text(date);
 							});
 				});
-	</script>
+		</script>
 
 	<script>
 		//テーブルのソート
 		$(document).ready(function() {
 			$('#fav-table').tablesorter();
 		});
+		</script>
+
+	<script>
+		//印刷ボタン
+	$(ducment).ready(function() {
+		  $('.print').click(function(){
+			    window.print();
+});
 	</script>
 
 </body>

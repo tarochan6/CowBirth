@@ -11,6 +11,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <c:import url="parts/commonCss.jsp" />
+
+
+
 <title>新規牛データ登録</title>
 </head>
 <body>
