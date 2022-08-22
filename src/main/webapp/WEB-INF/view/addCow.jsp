@@ -14,7 +14,7 @@
 
 
 
-<title>新規牛データ登録</title>
+<title>新規牛データ登録 - CowBirthdaylist</title>
 </head>
 <body>
 	<c:import url="parts/header.jsp" />
@@ -48,7 +48,7 @@
 					<div class="form-group mb-3">
 						<label for="formAiday">AI日</label> <input type="date" name="aiday"
 							id="formAiday" class="form-control"
-							value="" />
+							value="" required/>
 					</div>
 
 					<div class="form-group mb-3">

@@ -11,7 +11,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <c:import url="parts/commonCss.jsp" />
-<title>牛データの編集</title>
+<title>牛データの編集 - CowBirthdaylist</title>
 </head>
 <body>
 	<c:import url="parts/header.jsp" />
@@ -52,7 +52,7 @@
 					<div class="form-group mb-3">
 						<label for="formAiday">AI日</label> <input type="date" name="aiday"
 							id="formAiday" class="form-control"
-							value="<c:out value="${cow.aiDay}" />" />
+							value="<c:out value="${cow.aiDay}" />" required/>
 						<!-- 	<c:if test="${!empty amountError}">
 							<div class="alert alert-danger mt-1" role="alert">
 								<c:out value="${amountError}" />

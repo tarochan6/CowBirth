@@ -20,28 +20,34 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Cow Calendar</title>
+<title>CowBirthdaylist</title>
 
 </head>
 <body>
 	<div class="container mt-5">
 		<h1 class="logo text-center mb-3 fw-normal">
-			<i class="fa-solid fa-cow"></i>Cow Calendar
+			<i class="fa-solid fa-cow"></i>CowBirthdaylist
 		</h1>
-
 
 
 		<div class="row">
 			<div class="col-md-12">
 				<div class="">
-					<div class="d-flex justify-content-center" id="add">
+					<div class="d-flex justify-content-center">
 						<div class="mx-1 mb-3">
 							<label for="formName">牛の名前</label><input id="cowName" type="text"
 								class="form-control">
 						</div>
+
+
+
+
 						<div class="mx-1 mb-3">
-							<label for="formAiday">AI日</label><input id="cowAiday"
-								type="date" class="form-control">
+							<div class="cowAiday">
+								<label for="formAiday">AI日</label><input id="cowAiday"
+									type="date" class="form-control" value="today" />
+	
+							</div>
 						</div>
 
 
@@ -67,11 +73,11 @@
 						<table class="table table-bordered table-hover" id="fav-table">
 							<thead id="record-head">
 								<tr class="bg-light text-center">
-									<th>牛の名前</th>
-									<th>AI日</th>
-									<th>妊娠鑑定可能日</th>
-									<th>分娩予定日</th>
-									<th>品種</th>
+									<th>牛の名前 <i class="fa-solid fa-sort"></i></th>
+									<th>AI日 <i class="fa-solid fa-sort"></i></th>
+									<th>妊娠鑑定可能日 <i class="fa-solid fa-sort"></i></th>
+									<th>分娩予定日 <i class="fa-solid fa-sort"></i></th>
+									<th>品種 <i class="fa-solid fa-sort"></i></th>
 									<th>操作</th>
 								</tr>
 							</thead>
@@ -89,9 +95,11 @@
 						</tr>
 					</template>
 
-					<div class="ms-auto p-2 bd-highlight mt-3">
+					<div class="d-flex flex-row-reverse bd-highlight ms-auto p-2  mt-3">
 						<button type="button" class="btn btn-outline-dark"
-							onclick="window.print();">データを印刷する</button>
+							onclick="window.print();">
+							<i class="fa-solid fa-print"></i>データの印刷
+						</button>
 					</div>
 
 
@@ -198,21 +206,38 @@
 
 	<script>
 		//印刷ボタン
-		$(function() {
+		$(ducment).ready(function() {
 			$('.print').click(function() {
-				let add = $('add');
-				
-				add.hide();
-
 				window.print();
-
-				add.show();
 			});
 		});
-		
 	</script>
-
-
+	
+<script type="text/javascript">
+    //今日の日時を表示
+        window.onload = function () {
+            //今日の日時を表示
+            var date = new Date()
+            var year = date.getFullYear()
+            var month = date.getMonth() + 1
+            var day = date.getDate()
+          
+            var toTwoDigits = function (num, digit) {
+              num += ''
+              if (num.length < digit) {
+                num = '0' + num
+              }
+              return num
+            }
+            
+            var yyyy = toTwoDigits(year, 4)
+            var mm = toTwoDigits(month, 2)
+            var dd = toTwoDigits(day, 2)
+            var ymd = yyyy + "-" + mm + "-" + dd;
+            
+            document.getElementById("today").value = ymd;
+        }
+</script>
 
 </body>
 

@@ -21,7 +21,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Cow Calendar</title>
+<title>分娩予定牛一覧 - CowBirthdaylist</title>
 </head>
 <body>
 
@@ -76,10 +76,10 @@
 			</table>
 		</div>
 
-		<div class="ms-auto p-2 bd-highlight mt-3" id="insatsu">
-			<button type="button" class="btn btn-outline-dark"
-				onclick="window.print();">データを印刷する</button>
-		</div>
+					<div class="d-flex flex-row-reverse bd-highlight ms-auto p-2  mt-3">
+						<button type="button" class="btn btn-outline-dark"
+							onclick="window.print();"><i class="fa-solid fa-print"></i>データの印刷</button>
+					</div>
 
 
 		<div id="weight-view" class="toggle-display hide">
@@ -97,13 +97,13 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="modalLabel">記録の削除</h5>
+					<h5 class="modal-title" id="modalLabel">牛データの削除</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<p>
-						「<span id="modal-date"></span>」の記録を削除します。よろしいですか？
+						「<span id="modal-date"></span>」の牛データを削除します。よろしいですか？
 					</p>
 				</div>
 				<div class="modal-footer">
@@ -137,10 +137,12 @@
 
 	<script>
 		//印刷ボタン
-	$(ducment).ready(function() {
-		  $('.print').click(function(){
-			    window.print();
-});
+		$(ducment).ready(function() {
+			$('.print').click(function() {
+				window.print();
+			});
+		});
+		  
 	</script>
 
 </body>
