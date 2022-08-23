@@ -4,23 +4,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+	
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <c:import url="parts/commonCss.jsp" />
-<title>新規牛データ登録</title>
+
+
+
+<title>新規牛データ登録 - CowBirthdaylist</title>
 </head>
 <body>
 	<c:import url="parts/header.jsp" />
 
 	<div class="container mt-3">
-		<h1>牛の登録</h1>
+		<h1>新規牛データ登録</h1>
 		<div class="row">
 			<div class="col-md-12">
 				<form action="" method="post">
 
 
 					<div class="form-group mb-3">
-						<label for="formName">名号</label> <input type="text" name="name"
+						<label for="formName">牛の名前</label> <input type="text" name="name"
 							id="formName" class="form-control"
 							value="" />
 					</div>
@@ -41,7 +48,7 @@
 					<div class="form-group mb-3">
 						<label for="formAiday">AI日</label> <input type="date" name="aiday"
 							id="formAiday" class="form-control"
-							value="" />
+							value="" required/>
 					</div>
 
 					<div class="form-group mb-3">
@@ -50,8 +57,8 @@
 					</div>
 
 					<div class="form-group">
-						<input type="submit" class="btn btn-primary" value="登録" /> <a
-							href="<%= request.getContextPath() %>/index" class="btn btn-secondary">キャンセル</a>
+						<input type="submit" class="btn btn-outline-primary" value="登録" /> <a
+							href="<%= request.getContextPath() %>/index" class="btn btn-outline-secondary">キャンセル</a>
 					</div>
 				</form>
 			</div>

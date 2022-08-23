@@ -69,6 +69,32 @@ try {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/**
+		
+		Cow cows = new Cow();
+		User user = (User) request.getSession().getAttribute("user");
+
+		
+		try {
+			CowValidator validator = new CowValidator(request);
+			if(!validator.isValid()) {
+				request.setAttribute("varietyList", varietyList);
+				cows.setUserId(user.getId());
+				request.getRequestDispatcher("/WEB-INF/view/addCow.jsp").forward(request, response);
+				return;
+			}
+			
+			CowDao CowDao = DaoFactory.createCowDao();
+			CowDao.insert(validator.getvalidatedCow());
+			
+			response.sendRedirect(request.getContextPath() + "/index");
+			
+		} catch (Exception e) {
+			throw new ServletException(e);
+		}
+	}
+	*/
+		
 		Cow cows = new Cow();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		User user = (User) request.getSession().getAttribute("user");
@@ -91,6 +117,8 @@ try {
 		}
 
 		response.sendRedirect(request.getContextPath() + "/index");
+	
 	}
-
 }
+
+

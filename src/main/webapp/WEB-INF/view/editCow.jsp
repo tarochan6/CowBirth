@@ -4,10 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+	
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <c:import url="parts/commonCss.jsp" />
-<title>牛データの編集</title>
+<title>牛データ編集 - CowBirthdaylist</title>
 </head>
 <body>
 	<c:import url="parts/header.jsp" />
@@ -15,13 +19,13 @@
 
 
 	<div class="container mt-3">
-		<h1>情報変更</h1>
+		<h1>牛データ編集</h1>
 		<div class="row">
 			<div class="col-md-12">
 				<form action="" method="post">
 
 					<div class="form-group mb-3">
-						<label for="formName">名号</label> <input type="text" name="name"
+						<label for="formName">牛の名前</label> <input type="text" name="name"
 							id="formName" class="form-control"
 							value="<c:out value="${cow.cowName}" />" />
 						<!-- <c:if test="${!empty nameError}">
@@ -48,7 +52,7 @@
 					<div class="form-group mb-3">
 						<label for="formAiday">AI日</label> <input type="date" name="aiday"
 							id="formAiday" class="form-control"
-							value="<c:out value="${cow.aiDay}" />" />
+							value="<c:out value="${cow.aiDay}" />" required/>
 						<!-- 	<c:if test="${!empty amountError}">
 							<div class="alert alert-danger mt-1" role="alert">
 								<c:out value="${amountError}" />
@@ -67,8 +71,8 @@
 					<div class="form-group">
 						<input name="id" type="hidden" value="<c:out value="${cow.id}" />">
           				<input name="userId" type="hidden" value="<c:out value="${cow.userId}" />">
-						<input type="submit" class="btn btn-primary" value="登録" /> <a
-							href="<%= request.getContextPath() %>/index" class="btn btn-secondary">キャンセル</a>
+						<input type="submit" class="btn btn-outline-primary" value="編集" /> <a
+							href="<%= request.getContextPath() %>/index" class="btn btn-outline-secondary">キャンセル</a>
 							
 					</div>
 				</form>

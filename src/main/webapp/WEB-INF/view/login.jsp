@@ -4,20 +4,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <c:import url="parts/commonCss.jsp" />
 
 
-<title>ユーザーログイン</title>
+<title>ユーザーログイン - CowBirthdaylist</title>
 </head>
 <body>
 	<div class="container mt-5">
 		<div class="row">
 			<div class="col-lg-4 offset-lg-4">
 				<form action="" method="post">
-			  <h1 class="logo text-center mb-3 fw-normal">Cow Calendar</h1>
+			  <h1 class="logo text-center mb-3 fw-normal"><i class="fa-solid fa-cow"></i>CowBirthdaylist</h1>
 					<c:if test="${error}">
 						<div class="alert alert-danger" role="alert">
 							ログインIDまたはパスワードが間違っています。</div>
@@ -36,11 +37,12 @@
 							for="floatingPassword">パスワード</label>
 					</div>
 
-					<input class="w-100 btn btn-lg btn-primary mb-3" type="submit"
+					<input class="w-100 btn btn-lg btn-primary mb-3 " type="submit"
 						value="ログイン">
 						
-					<div class="text-center"><a class="link-primary" href="<%= request.getContextPath() %>/signup">ユーザー登録を行う</a></div>
+					<div class="text-center mｔ-3"><a class="link-primary" href="<%= request.getContextPath() %>/signup">ユーザー登録を行う</a></div>
 					
+					<div class="text-center my-3"><a class="link-primary" href="<%= request.getContextPath() %>/light">簡易版へ</a></div>
 					
 				</form>
 			</div>

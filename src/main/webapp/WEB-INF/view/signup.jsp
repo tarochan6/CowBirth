@@ -4,17 +4,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <c:import url="parts/commonCss.jsp" />
-<title>ユーザー登録</title>
+<title>ユーザー登録 - CowBirthdaylist</title>
 </head>
 <body>
 <div class="container mt-5">
   <div class="row">
     <div class="col-lg-4 offset-lg-4">
       <form action="" method="post">
-      <h1 class="logo text-center mb-3 fw-normal">Cow Calendar</h1>
+      <h1 class="logo text-center mb-3 fw-normal"><i class="fa-solid fa-cow"></i>CowBirthdaylist</h1>
       <h2 class="text-center">ユーザー登録</h2>
       <c:if test="${!empty errors}">
       <div class="alert alert-danger" role="alert">
