@@ -29,7 +29,6 @@
 			<i class="fa-solid fa-cow"></i>CowBirthdaylist
 		</h1>
 
-
 		<div class="row">
 			<div class="col-md-12">
 				<div class="">
@@ -40,12 +39,10 @@
 						</div>
 
 
-
-
 						<div class="mx-1 mb-3">
 							<div class="cowAiday">
-								<label for="formAiday">AI日</label><input id="cowAiday"
-									type="date" class="form-control" value="today" />
+								<label for="formAiday">AI日</label><input id="today"
+									type="date" class="form-control" />
 	
 							</div>
 						</div>
@@ -114,12 +111,36 @@
 
 
 
+<script type="text/javascript">
+    //データエラー防止のため、入力バーに今日の日時を表示
+        window.onload = function () {
+            //今日の日時を表示
+            var date = new Date()
+            var year = date.getFullYear()
+            var month = date.getMonth() + 1
+            var day = date.getDate()
+          
+            var toTwoDigits = function (num, digit) {
+              num += ''
+              if (num.length < digit) {
+                num = '0' + num
+              }
+              return num
+            }
+            
+            var yyyy = toTwoDigits(year, 4)
+            var mm = toTwoDigits(month, 2)
+            var dd = toTwoDigits(day, 2)
+            var ymd = yyyy + "-" + mm + "-" + dd;
+            
+            document.getElementById("today").value = ymd;
+        }
+</script>
 
 	<script>
 		//DOM
 		$(document).ready(
 				function() {
-
 					$('#btn')
 							.click(
 									function() {
@@ -127,9 +148,9 @@
 										const cowName = $('#cowName').val();
 										const cowVariety = $('#cowVariety')
 												.val();
-										const cowAiday = $('#cowAiday').val();
+										const cowAiday = $('#today').val();
 										console.log('入力値の取得', cowVariety,
-												cowAiday);
+												today);
 
 										var ai = new Date(cowAiday)
 
@@ -212,32 +233,6 @@
 			});
 		});
 	</script>
-	
-<script type="text/javascript">
-    //今日の日時を表示
-        window.onload = function () {
-            //今日の日時を表示
-            var date = new Date()
-            var year = date.getFullYear()
-            var month = date.getMonth() + 1
-            var day = date.getDate()
-          
-            var toTwoDigits = function (num, digit) {
-              num += ''
-              if (num.length < digit) {
-                num = '0' + num
-              }
-              return num
-            }
-            
-            var yyyy = toTwoDigits(year, 4)
-            var mm = toTwoDigits(month, 2)
-            var dd = toTwoDigits(day, 2)
-            var ymd = yyyy + "-" + mm + "-" + dd;
-            
-            document.getElementById("today").value = ymd;
-        }
-</script>
 
 </body>
 
