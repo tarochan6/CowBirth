@@ -20,7 +20,7 @@
 	<c:import url="parts/header.jsp" />
 
 	<div class="container mt-3">
-		<h1>新規牛データの登録</h1>
+		<h1>新規牛データ登録</h1>
 		<div class="row">
 			<div class="col-md-12">
 				<form action="" method="post">
@@ -57,8 +57,8 @@
 					</div>
 
 					<div class="form-group">
-						<input type="submit" class="btn btn-primary" value="登録" /> <a
-							href="<%= request.getContextPath() %>/index" class="btn btn-secondary">キャンセル</a>
+						<input type="submit" class="btn btn-outline-primary" value="登録" /> <a
+							href="<%= request.getContextPath() %>/index" class="btn btn-outline-secondary">キャンセル</a>
 					</div>
 				</form>
 			</div>
