@@ -25,9 +25,15 @@
 </head>
 <body>
 	<div class="container mt-5">
-		<h1 class="logo text-center mb-3 fw-normal">
+		<h1 class="logo text-center mb-0 fw-normal">
 			<i class="fa-solid fa-cow"></i>CowBirthdaylist
 		</h1>
+		
+		<div class="text-center mb-3 logo">
+		<h4>Light ver.</h4>
+		</div>
+		
+	
 
 		<div class="row">
 			<div class="col-md-12">
@@ -103,6 +109,7 @@
 					<div class="text-center mb-3">
 						<a class="link-primary" href="<%=request.getContextPath()%>/login">ログインページへ戻る</a>
 					</div>
+				
 
 				</div>
 			</div>

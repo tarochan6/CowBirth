@@ -71,9 +71,11 @@
 					<div class="form-group">
 						<input name="id" type="hidden" value="<c:out value="${cow.id}" />">
           				<input name="userId" type="hidden" value="<c:out value="${cow.userId}" />">
-						<input type="submit" class="btn btn-outline-primary" value="編集" /> <a
-							href="<%= request.getContextPath() %>/index" class="btn btn-outline-secondary">キャンセル</a>
-							
+          				
+          				<div class="d-flex justify-content-center">
+						<input type="submit" class="btn btn-outline-primary mx-1" value="送信" /> <a
+							href="<%= request.getContextPath() %>/index" class="btn btn-outline-danger mx-1">キャンセル</a>
+							</div>
 					</div>
 				</form>
 			</div>
