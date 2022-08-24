@@ -28,11 +28,7 @@
 						<label for="formName">牛の名前</label> <input type="text" name="name"
 							id="formName" class="form-control"
 							value="<c:out value="${cow.cowName}" />" />
-						<!-- <c:if test="${!empty nameError}">
-							<div class="alert alert-danger mt-1" role="alert">
-								<c:out value="${nameError}" />
-							</div>
-						</c:if> -->
+
 
 					</div>
 
@@ -53,12 +49,6 @@
 						<label for="formAiday">AI日</label> <input type="date" name="aiday"
 							id="formAiday" class="form-control"
 							value="<c:out value="${cow.aiDay}" />" required/>
-						<!-- 	<c:if test="${!empty amountError}">
-							<div class="alert alert-danger mt-1" role="alert">
-								<c:out value="${amountError}" />
-							</div>
-						</c:if> -->
-
 					</div>
 
 
@@ -71,9 +61,11 @@
 					<div class="form-group">
 						<input name="id" type="hidden" value="<c:out value="${cow.id}" />">
           				<input name="userId" type="hidden" value="<c:out value="${cow.userId}" />">
-						<input type="submit" class="btn btn-outline-primary" value="編集" /> <a
-							href="<%= request.getContextPath() %>/index" class="btn btn-outline-secondary">キャンセル</a>
-							
+          				
+          				<div class="d-flex justify-content-center">
+						<input type="submit" class="btn btn-outline-primary mx-1" value="送信" /> <a
+							href="<%= request.getContextPath() %>/index" class="btn btn-outline-danger mx-1">キャンセル</a>
+							</div>
 					</div>
 				</form>
 			</div>

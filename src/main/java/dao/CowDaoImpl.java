@@ -32,12 +32,7 @@ public class CowDaoImpl implements CowDao {
 					+ "  WHEN 3 THEN DATE_ADD(aiday, INTERVAL 280 DAY)"
 					+ " ELSE NULL"
 					+ " end birthday,"
-					+ " CASE variety_id"
-					+ "  WHEN 1 THEN DATE_ADD(aiday, INTERVAL 28 DAY)"
-					+ "  WHEN 2 THEN DATE_ADD(aiday, INTERVAL 28 DAY)"
-					+ "  WHEN 3 THEN DATE_ADD(aiday, INTERVAL 28 DAY)"
-					+ " ELSE NULL"
-					+ " end ptday"
+					+ " DATE_ADD(aiday, INTERVAL 28 DAY)ptday"
 					+ " FROM cowbirth_db.cows"
 					+ " JOIN varietys ON cows.variety_id = varietys.id"
 					+ " WHERE user_id = ?"
@@ -58,29 +53,16 @@ public class CowDaoImpl implements CowDao {
 	public Cow findById(int id, int userId) throws Exception {
 		Cow cow = null;
 		try (Connection con = ds.getConnection()) {
-			String sql = "SELECT cows.id, cows.user_id, cows.name, cows.note, cows.aiday, varietys.name as variety_name, varietys.id as variety_id,"
-					+ " CASE variety_id"
-					+ "  WHEN 1 THEN DATE_ADD(aiday, INTERVAL 280 DAY)"
-					+ "  WHEN 2 THEN DATE_ADD(aiday, INTERVAL 285 DAY)"
-					+ "  WHEN 3 THEN DATE_ADD(aiday, INTERVAL 280 DAY)"
-					+ " ELSE NULL"
-					+ " end birthday,"
-					+ " CASE variety_id"
-					+ "  WHEN 1 THEN DATE_ADD(aiday, INTERVAL 28 DAY)"
-					+ "  WHEN 2 THEN DATE_ADD(aiday, INTERVAL 28 DAY)"
-					+ "  WHEN 3 THEN DATE_ADD(aiday, INTERVAL 28 DAY)"
-					+ " ELSE NULL"
-					+ " end ptday"
+			String sql = "SELECT *, varietys.name as variety_name, varietys.id as variety_id"
 					+ " FROM cowbirth_db.cows"
 					+ " JOIN varietys ON cows.variety_id = varietys.id"
-					+ " WHERE cows.id = ? AND user_id = ?"
-					+ " ORDER BY birthday ASC";
+					+ " WHERE cows.id = ? AND user_id = ?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setInt(1, id);
 			stmt.setInt(2, userId);
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
-				cow = mapToCow(rs);
+				cow = mapToCow2(rs);
 			}
 		} catch (Exception e) {
 			throw e;
@@ -153,6 +135,18 @@ public class CowDaoImpl implements CowDao {
 		cow.setNote(rs.getString("note"));
 		cow.setBirthDay(rs.getDate("birthday"));
 		cow.setPtDay(rs.getDate("ptday"));
+		cow.setVarietyName(rs.getString("variety_name"));
+		return cow;
+	}
+	
+	protected Cow mapToCow2(ResultSet rs) throws Exception {
+		Cow cow = new Cow();
+		cow.setId(rs.getInt("id"));
+		cow.setUserId(rs.getInt("user_id"));
+		cow.setVarietyId(rs.getInt("variety_id"));
+		cow.setCowName(rs.getString("name"));
+		cow.setAiDay(rs.getDate("aiday"));
+		cow.setNote(rs.getString("note"));
 		cow.setVarietyName(rs.getString("variety_name"));
 		return cow;
 	}

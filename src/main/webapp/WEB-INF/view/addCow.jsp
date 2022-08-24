@@ -56,9 +56,9 @@
 						<textarea name="note" id="formNote" class="form-control"></textarea>
 					</div>
 
-					<div class="form-group">
-						<input type="submit" class="btn btn-outline-primary" value="登録" /> <a
-							href="<%= request.getContextPath() %>/index" class="btn btn-outline-secondary">キャンセル</a>
+					<div class="form-group d-flex justify-content-center mx-1">
+						<input type="submit" class="btn btn-outline-primary mx-1" value="登録" /> <a
+							href="<%= request.getContextPath() %>/index" class="btn btn-outline-danger">キャンセル</a>
 					</div>
 				</form>
 			</div>

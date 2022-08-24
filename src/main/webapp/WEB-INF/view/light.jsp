@@ -25,9 +25,15 @@
 </head>
 <body>
 	<div class="container mt-5">
-		<h1 class="logo text-center mb-3 fw-normal">
+		<h1 class="logo text-center mb-0 fw-normal">
 			<i class="fa-solid fa-cow"></i>CowBirthdaylist
 		</h1>
+		
+		<div class="text-center mb-3 logo">
+		<h4>Light ver.</h4>
+		</div>
+		
+	
 
 		<div class="row">
 			<div class="col-md-12">
@@ -59,7 +65,7 @@
 
 
 						<div class="mx-3 mb-3 mt-4">
-							<button type="button" class="btn btn-outline-dark" id="btn">計算する</button>
+							<button type="button" class="btn btn-outline-dark text-nowrap" id="btn">計算する</button>
 
 						</div>
 
@@ -103,6 +109,7 @@
 					<div class="text-center mb-3">
 						<a class="link-primary" href="<%=request.getContextPath()%>/login">ログインページへ戻る</a>
 					</div>
+				
 
 				</div>
 			</div>
@@ -112,7 +119,7 @@
 
 
 <script type="text/javascript">
-    //データエラー防止のため、入力バーに今日の日時を表示
+    //データエラー防止のため今日の日時を表示
         window.onload = function () {
             //今日の日時を表示
             var date = new Date()
