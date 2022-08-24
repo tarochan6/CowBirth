@@ -32,7 +32,7 @@
 		<div class="d-flex justify-content-between align-items-start">
 			<h1 class="mb-4 d-inline-block">分娩予定牛一覧</h1>
 
-			<a class="btn btn-outline-success mx-3"
+			<a class="btn btn-outline-success mx-3 text-nowrap"
 				href="<%=request.getContextPath()%>/addCow">新規牛データ登録</a>
 		</div>
 
@@ -63,10 +63,10 @@
 								pattern="y年MM月dd日(E)" /></td>
 						<td><c:out value="${cow.varietyName}" /></td>
 						<td><c:out value="${cow.note}" /></td>
-						<td><a class="btn btn-outline-primary"
+						<td><a class="btn btn-outline-primary my-1 text-nowrap"
 							href="<%= request.getContextPath() %>/editCow?id=<c:out value="${cow.id}" />">編集</a>
 
-							<button class="btn btn-outline-danger delete"
+							<button class="btn btn-outline-danger delete my-1 text-nowrap"
 								data-bs-toggle="modal" data-bs-target="#deleteModal"
 								data-href="<%= request.getContextPath() %>/deleteCow?id=<c:out value="${cow.id}" />">削除</button>
 						</td>

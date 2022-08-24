@@ -65,7 +65,7 @@
 
 
 						<div class="mx-3 mb-3 mt-4">
-							<button type="button" class="btn btn-outline-dark" id="btn">計算する</button>
+							<button type="button" class="btn btn-outline-dark text-nowrap" id="btn">計算する</button>
 
 						</div>
 
