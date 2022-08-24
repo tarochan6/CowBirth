@@ -119,7 +119,7 @@
 
 
 <script type="text/javascript">
-    //データエラー防止のため、入力バーに今日の日時を表示
+    //データエラー防止のため今日の日時を表示
         window.onload = function () {
             //今日の日時を表示
             var date = new Date()
