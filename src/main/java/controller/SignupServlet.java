@@ -37,7 +37,7 @@ public class SignupServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	//　入力値の取得
+	
 		String loginId = request.getParameter("loginId");
 		String loginPass = request.getParameter("loginPass");
 		String confPass = request.getParameter("confPass");

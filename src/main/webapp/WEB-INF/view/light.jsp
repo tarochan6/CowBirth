@@ -119,9 +119,8 @@
 
 
 <script type="text/javascript">
-    //データエラー防止のため、入力バーに今日の日時を表示
+    //データエラー防止のため今日の日時を表示
         window.onload = function () {
-            //今日の日時を表示
             var date = new Date()
             var year = date.getFullYear()
             var month = date.getMonth() + 1
@@ -139,7 +138,7 @@
             var mm = toTwoDigits(month, 2)
             var dd = toTwoDigits(day, 2)
             var ymd = yyyy + "-" + mm + "-" + dd;
-            
+
             document.getElementById("today").value = ymd;
         }
 </script>
@@ -223,9 +222,7 @@
 										$('#fav-table').trigger("update");
 										$('#fav-table').trigger("appendCache");
 										$('#fav-table').tablesorter();
-
 									}); // click
-
 				}); // ready
 	</script>
 

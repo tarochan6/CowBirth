@@ -28,11 +28,7 @@
 						<label for="formName">牛の名前</label> <input type="text" name="name"
 							id="formName" class="form-control"
 							value="<c:out value="${cow.cowName}" />" />
-						<!-- <c:if test="${!empty nameError}">
-							<div class="alert alert-danger mt-1" role="alert">
-								<c:out value="${nameError}" />
-							</div>
-						</c:if> -->
+
 
 					</div>
 
@@ -53,12 +49,6 @@
 						<label for="formAiday">AI日</label> <input type="date" name="aiday"
 							id="formAiday" class="form-control"
 							value="<c:out value="${cow.aiDay}" />" required/>
-						<!-- 	<c:if test="${!empty amountError}">
-							<div class="alert alert-danger mt-1" role="alert">
-								<c:out value="${amountError}" />
-							</div>
-						</c:if> -->
-
 					</div>
 
 
