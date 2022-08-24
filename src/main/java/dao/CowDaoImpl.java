@@ -32,12 +32,7 @@ public class CowDaoImpl implements CowDao {
 					+ "  WHEN 3 THEN DATE_ADD(aiday, INTERVAL 280 DAY)"
 					+ " ELSE NULL"
 					+ " end birthday,"
-					+ " CASE variety_id"
-					+ "  WHEN 1 THEN DATE_ADD(aiday, INTERVAL 28 DAY)"
-					+ "  WHEN 2 THEN DATE_ADD(aiday, INTERVAL 28 DAY)"
-					+ "  WHEN 3 THEN DATE_ADD(aiday, INTERVAL 28 DAY)"
-					+ " ELSE NULL"
-					+ " end ptday"
+					+ " DATE_ADD(aiday, INTERVAL 28 DAY)ptday"
 					+ " FROM cowbirth_db.cows"
 					+ " JOIN varietys ON cows.variety_id = varietys.id"
 					+ " WHERE user_id = ?"
@@ -58,7 +53,7 @@ public class CowDaoImpl implements CowDao {
 	public Cow findById(int id, int userId) throws Exception {
 		Cow cow = null;
 		try (Connection con = ds.getConnection()) {
-			String sql = "SELECT cows.id, cows.user_id, cows.name, cows.note, cows.aiday, varietys.name as variety_name, varietys.id as variety_id"
+			String sql = "SELECT *, varietys.name as variety_name, varietys.id as variety_id"
 					+ " FROM cowbirth_db.cows"
 					+ " JOIN varietys ON cows.variety_id = varietys.id"
 					+ " WHERE cows.id = ? AND user_id = ?";
