@@ -64,6 +64,7 @@ public class EditCowSevlet extends HttpServlet {
 
 		try {
 			DaoFactory.createCowDao().update(cows);
+			//request.getRequestDispatcher("/WEB-INF/view/editCowDone.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
