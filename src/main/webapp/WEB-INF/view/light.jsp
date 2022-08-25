@@ -106,7 +106,7 @@
 					</div>
 
 
-					<div class="text-center mb-3">
+					<div class="text-center mb-5">
 						<a class="link-primary" href="<%=request.getContextPath()%>/login">ログインページへ戻る</a>
 					</div>
 				
