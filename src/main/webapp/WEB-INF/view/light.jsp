@@ -101,7 +101,7 @@
 					<div class="d-flex flex-row-reverse bd-highlight ms-auto p-2  mt-3">
 						<button type="button" class="btn btn-outline-dark"
 							onclick="window.print();">
-							<i class="fa-solid fa-print"></i>データの印刷
+							<i class="fa-solid fa-print"></i> データの印刷
 						</button>
 					</div>
 
