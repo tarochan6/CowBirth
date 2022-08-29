@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <c:import url="parts/commonCss.jsp" />
 
-
+<link rel="icon" href="<%=request.getContextPath()%>/img/favicon.ico" />
 
 <title>新規牛データ登録 - CowBirthdaylist</title>
 </head>
