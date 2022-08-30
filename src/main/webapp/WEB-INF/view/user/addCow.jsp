@@ -10,14 +10,14 @@
 	
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<c:import url="parts/commonCss.jsp" />
+<c:import url="../parts/commonCss.jsp" />
 
 <link rel="icon" href="<%=request.getContextPath()%>/img/favicon.ico" />
 
 <title>新規牛データ登録 - CowBirthdaylist</title>
 </head>
 <body>
-	<c:import url="parts/header.jsp" />
+	<c:import url="../parts/header.jsp" />
 
 	<div class="container mt-3">
 		<h1>新規牛データ登録</h1>
@@ -58,7 +58,7 @@
 
 					<div class="form-group d-flex justify-content-center mx-1">
 						<input type="submit" class="btn btn-outline-primary mx-1" value="登録" /> <a
-							href="<%= request.getContextPath() %>/index" class="btn btn-outline-danger">キャンセル</a>
+							href="<%= request.getContextPath() %>/user/index" class="btn btn-outline-danger">キャンセル</a>
 					</div>
 				</form>
 			</div>

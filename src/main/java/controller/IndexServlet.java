@@ -16,7 +16,7 @@ import domain.User;
 /**
  * Servlet implementation class IndexServlet
  */
-@WebServlet("/index")
+@WebServlet("/user/index")
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,8 +31,9 @@ public class IndexServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User user = (User) request.getSession().getAttribute("user");
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+   	User user = (User) request.getSession().getAttribute("user");
 		
 		List<Cow> cows = null;
 		try {
@@ -41,7 +42,12 @@ public class IndexServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		request.setAttribute("cows", cows);
-		request.getRequestDispatcher("/WEB-INF/view/index.jsp").forward(request, response);
+    	
+    	request.getRequestDispatcher("/WEB-INF/view/user/index.jsp").forward(request, response);
+    
+    }
+    
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
 		

@@ -21,7 +21,7 @@ import domain.Variety;
 /**
  * Servlet implementation class AddCowServlet
  */
-@WebServlet("/addCow")
+@WebServlet("/user/addCow")
 public class AddCowServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -55,10 +55,10 @@ Cow cows = new Cow();
 try {
 	request.setAttribute("varietyList", varietyList);
 	cows.setUserId(user.getId());
-	request.getRequestDispatcher("/WEB-INF/view/addCow.jsp").forward(request, response);
+	request.getRequestDispatcher("/WEB-INF/view/user/addCow.jsp").forward(request, response);
 } catch (Exception e) {
 	e.printStackTrace();
-	response.sendRedirect(request.getContextPath() + "/index");
+	response.sendRedirect(request.getContextPath() + "/user/index");
 }
 
 
@@ -91,7 +91,7 @@ try {
 			e.printStackTrace();
 		}
 
-		response.sendRedirect(request.getContextPath() + "/index");
+		response.sendRedirect(request.getContextPath() + "/user/index");
 	
 	}
 }

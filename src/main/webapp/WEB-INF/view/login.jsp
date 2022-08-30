@@ -45,7 +45,7 @@
 						
 					<div class="text-center mｔ-3"><a class="link-primary" href="<%= request.getContextPath() %>/signup">ユーザー登録を行う</a></div>
 					
-					<div class="text-center my-3"><a class="link-primary" href="<%= request.getContextPath() %>/light">簡易版へ</a></div>
+					<div class="text-center my-3"><a class="link-primary" href="<%= request.getContextPath() %>/light">ライト版へ</a></div>
 					
 				</form>
 			</div>

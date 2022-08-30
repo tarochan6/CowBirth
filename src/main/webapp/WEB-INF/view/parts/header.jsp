@@ -18,7 +18,7 @@
             <c:out value="${user.loginId}" /> さん
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="logout">ログアウト</a></li>
+            <li><a class="dropdown-item" href="<%= request.getContextPath() %>/logout">ログアウト</a></li>
           </ul>
         </li>
       </ul>

@@ -14,7 +14,7 @@ import domain.User;
 /**
  * Servlet implementation class DeleteCowServlet
  */
-@WebServlet("/deleteCow")
+@WebServlet("/user/deleteCow")
 public class DeleteCowServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -39,7 +39,7 @@ public class DeleteCowServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		response.sendRedirect(request.getContextPath() + "/index");
+		response.sendRedirect(request.getContextPath() + "/user/index");
 	}
 
 }

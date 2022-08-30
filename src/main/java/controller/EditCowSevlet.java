@@ -19,7 +19,7 @@ import domain.Variety;
 /**
  * Servlet implementation class EdicCowSevlet
  */
-@WebServlet("/editCow")
+@WebServlet("/user/editCow")
 public class EditCowSevlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -37,10 +37,10 @@ public class EditCowSevlet extends HttpServlet {
 			List<Variety> varietyList = DaoFactory.createVarietyCowDao().findAll();
 			request.setAttribute("varietyList", varietyList);
 			request.setAttribute("cow", cow);
-			request.getRequestDispatcher("/WEB-INF/view/editCow.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/view/user/editCow.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
-			response.sendRedirect(request.getContextPath() + "/index");
+			response.sendRedirect(request.getContextPath() + "/user/index");
 		}
 
 	}
@@ -68,7 +68,7 @@ public class EditCowSevlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		response.sendRedirect(request.getContextPath() + "/index");
+		response.sendRedirect(request.getContextPath() + "/user/index");
 
 	}
 }
