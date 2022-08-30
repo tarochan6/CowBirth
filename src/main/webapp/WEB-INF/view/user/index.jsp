@@ -5,27 +5,27 @@
 <html>
 <head>
 
-<c:import url="parts/commonCss.jsp" />
-<c:import url="parts/commonJs.jsp" />
-
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
-
+<c:import url="../parts/commonCss.jsp" />
+<c:import url="../parts/commonJs.jsp" />
 
 <script src="<%=request.getContextPath()%>/js/chart-3.8.0.min.js"></script>
-<script type="text/javascript"
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	
+<!-- フォントオーサム -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+<!-- テーブルソート -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="icon" href="<%=request.getContextPath()%>/img/favicon.ico" />
 
 <title>分娩予定牛一覧 - CowBirthdaylist</title>
 </head>
 <body>
 
-	<c:import url="parts/header.jsp" />
+	<c:import url="../parts/header.jsp" />
 
 
 	<div class="container mt-3">
@@ -33,7 +33,7 @@
 			<h1 class="mb-4 d-inline-block">分娩予定牛一覧</h1>
 
 			<a class="btn btn-outline-success mx-3 text-nowrap"
-				href="<%=request.getContextPath()%>/addCow">新規牛データ登録</a>
+				href="<%=request.getContextPath()%>/user/addCow">新規牛データ登録</a>
 		</div>
 
 		<div id="table-view" class="toggle-display col-12">
@@ -64,11 +64,11 @@
 						<td><c:out value="${cow.varietyName}" /></td>
 						<td><c:out value="${cow.note}" /></td>
 						<td><a class="btn btn-outline-primary my-1 text-nowrap"
-							href="<%= request.getContextPath() %>/editCow?id=<c:out value="${cow.id}" />">編集</a>
+							href="<%= request.getContextPath() %>/user/editCow?id=<c:out value="${cow.id}" />">編集</a>
 
 							<button class="btn btn-outline-danger delete my-1 text-nowrap"
 								data-bs-toggle="modal" data-bs-target="#deleteModal"
-								data-href="<%= request.getContextPath() %>/deleteCow?id=<c:out value="${cow.id}" />">削除</button>
+								data-href="<%= request.getContextPath() %>/user/deleteCow?id=<c:out value="${cow.id}" />">削除</button>
 						</td>
 					</tr>
 				</c:forEach>
@@ -78,7 +78,7 @@
 
 					<div class="d-flex flex-row-reverse bd-highlight ms-auto p-2  mt-1">
 						<button type="button" class="btn btn-outline-dark"
-							onclick="window.print();"><i class="fa-solid fa-print"></i>データの印刷</button>
+							onclick="window.print();"><i class="fa-solid fa-print"></i> データの印刷</button>
 					</div>
 
 

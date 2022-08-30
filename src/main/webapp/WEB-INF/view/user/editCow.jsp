@@ -4,32 +4,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<!-- フォントオーサム -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 	
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<c:import url="parts/commonCss.jsp" />
+<c:import url="../parts/commonCss.jsp" />
 
+<link rel="icon" href="<%=request.getContextPath()%>/img/favicon.ico" />
 
-
-<title>新規牛データ登録 - CowBirthdaylist</title>
+<title>牛データ編集 - CowBirthdaylist</title>
 </head>
 <body>
-	<c:import url="parts/header.jsp" />
+	<c:import url="../parts/header.jsp" />
+
+
 
 	<div class="container mt-3">
-		<h1>新規牛データ登録</h1>
+		<h1>牛データ編集</h1>
 		<div class="row">
 			<div class="col-md-12">
 				<form action="" method="post">
 
-
 					<div class="form-group mb-3">
 						<label for="formName">牛の名前</label> <input type="text" name="name"
 							id="formName" class="form-control"
-							value="" />
+							value="<c:out value="${cow.cowName}" />" />
+
+
 					</div>
 
 					<div class="form-group mb-3">
@@ -48,17 +51,24 @@
 					<div class="form-group mb-3">
 						<label for="formAiday">AI日</label> <input type="date" name="aiday"
 							id="formAiday" class="form-control"
-							value="" required/>
+							value="<c:out value="${cow.aiDay}" />" required/>
 					</div>
+
 
 					<div class="form-group mb-3">
 						<label for="formNote">備考</label>
-						<textarea name="note" id="formNote" class="form-control"></textarea>
+						<textarea name="note" id="formNote" class="form-control"><c:out
+								value="${cow.note}" /></textarea>
 					</div>
 
-					<div class="form-group d-flex justify-content-center mx-1">
-						<input type="submit" class="btn btn-outline-primary mx-1" value="登録" /> <a
-							href="<%= request.getContextPath() %>/index" class="btn btn-outline-danger">キャンセル</a>
+					<div class="form-group">
+						<input name="id" type="hidden" value="<c:out value="${cow.id}" />">
+          				<input name="userId" type="hidden" value="<c:out value="${cow.userId}" />">
+          				
+          				<div class="d-flex justify-content-center">
+						<input type="submit" class="btn btn-outline-primary mx-1" value="送信" /> <a
+							href="<%= request.getContextPath() %>/user/index" class="btn btn-outline-danger mx-1">キャンセル</a>
+							</div>
 					</div>
 				</form>
 			</div>

@@ -8,17 +8,19 @@
 <c:import url="parts/commonCss.jsp" />
 <c:import url="parts/commonJs.jsp" />
 
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
-
 <script src="<%=request.getContextPath()%>/js/chart-3.8.0.min.js"></script>
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- フォントオーサム -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+	<!-- テーブルソート -->
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="<%=request.getContextPath()%>/img/favicon.ico" />
 
 <title>CowBirthdaylist</title>
 
@@ -101,12 +103,12 @@
 					<div class="d-flex flex-row-reverse bd-highlight ms-auto p-2  mt-3">
 						<button type="button" class="btn btn-outline-dark"
 							onclick="window.print();">
-							<i class="fa-solid fa-print"></i>データの印刷
+							<i class="fa-solid fa-print"></i> データの印刷
 						</button>
 					</div>
 
 
-					<div class="text-center mb-3">
+					<div class="text-center mb-5">
 						<a class="link-primary" href="<%=request.getContextPath()%>/login">ログインページへ戻る</a>
 					</div>
 				
