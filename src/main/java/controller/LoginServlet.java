@@ -50,7 +50,6 @@ public class LoginServlet extends HttpServlet {
 				request.getSession().setAttribute("user", user);
 				response.sendRedirect(request.getContextPath() + "/user/index");
 			} else {
-				
 				request.setAttribute("error", true);
 				request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
 			}

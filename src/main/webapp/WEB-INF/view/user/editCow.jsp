@@ -4,13 +4,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<c:import url="../parts/commonCss.jsp" />
+<c:import url="../parts/commonJs.jsp" />
+
+<script src="<%=request.getContextPath()%>/js/chart-3.8.0.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 <!-- フォントオーサム -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 	
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<c:import url="../parts/commonCss.jsp" />
 
 <link rel="icon" href="<%=request.getContextPath()%>/img/favicon.ico" />
 
@@ -22,7 +28,10 @@
 
 
 	<div class="container mt-3">
-		<h1>牛データ編集</h1>
+	
+	<a href="<%= request.getContextPath() %>/user/index" class="mb-4"><i class="fa-solid fa-arrow-left"></i>戻る</a>
+	
+		<h1 class="mt-2">牛データ編集</h1>
 		<div class="row">
 			<div class="col-md-12">
 				<form action="" method="post">
@@ -65,10 +74,9 @@
 						<input name="id" type="hidden" value="<c:out value="${cow.id}" />">
           				<input name="userId" type="hidden" value="<c:out value="${cow.userId}" />">
           				
-          				<div class="d-flex justify-content-center">
-						<input type="submit" class="btn btn-outline-primary mx-1" value="送信" /> <a
-							href="<%= request.getContextPath() %>/user/index" class="btn btn-outline-danger mx-1">キャンセル</a>
-							</div>
+          				<div class="text-left">
+						<input type="submit" class="btn btn-outline-primary mx-1" value="送信" />
+						</div>
 					</div>
 				</form>
 			</div>
