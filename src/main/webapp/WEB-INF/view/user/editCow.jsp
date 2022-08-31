@@ -35,7 +35,16 @@
 		<div class="row">
 			<div class="col-md-12">
 				<form action="" method="post">
-
+				
+					<c:if test="${!empty errors}">
+						<div class="alert alert-danger" role="alert">
+							<c:forEach items="${errors}" var="error" varStatus="vs">
+								<c:out value="${error}" />
+								<c:out value="${vs.last ? '' : '<br>'}" escapeXml="false" />
+							</c:forEach>
+						</div>
+					</c:if>
+					
 					<div class="form-group mb-3">
 						<label for="formName">牛の名前</label> <input type="text" name="name"
 							id="formName" class="form-control"

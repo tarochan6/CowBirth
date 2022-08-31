@@ -63,7 +63,7 @@
 
 					<div class="form-group mb-3">
 						<label for="formAiday">AI日</label> <input type="date" name="aiday"
-							id="formAiday" class="form-control" value="" required />
+							id="formAiday" class="form-control" value="" />
 					</div>
 
 					<div class="form-group mb-3">

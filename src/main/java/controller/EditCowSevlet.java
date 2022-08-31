@@ -47,7 +47,7 @@ public class EditCowSevlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		Cow cows = new Cow();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -69,6 +69,5 @@ public class EditCowSevlet extends HttpServlet {
 		}
 
 		response.sendRedirect(request.getContextPath() + "/user/index");
-
 	}
 }
