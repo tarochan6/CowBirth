@@ -25,7 +25,7 @@
 
 <style>
 @media print{
-.btn, .kesu1, .kesu2, .navbar-toggler{
+.btn, .printdelete1, .printdelete2, .navbar-toggler{
 display:none;
 }
 }
@@ -56,7 +56,7 @@ display:none;
 						<th>分娩予定日 <i class="fa-solid fa-sort"></i></th>
 						<th>品種 <i class="fa-solid fa-sort"></i></th>
 						<th>備考</th>
-						<th colspan="2" id="cowdate" class="kesu1">データの編集</th>
+						<th colspan="2" id="cowdate" class="printdelete1">データの編集</th>
 					</tr>
 				</thead>
 
@@ -73,7 +73,7 @@ display:none;
 								pattern="y年MM月dd日(E)" /></td>
 						<td><c:out value="${cow.varietyName}" /></td>
 						<td><c:out value="${cow.note}" /></td>
-						<td class="kesu2"><a class="btn btn-outline-primary my-1 text-nowrap"
+						<td class="printdelete2"><a class="btn btn-outline-primary my-1 text-nowrap"
 							href="<%= request.getContextPath() %>/user/editCow?id=<c:out value="${cow.id}" />">編集</a>
 
 							<button class="btn btn-outline-danger delete my-1 text-nowrap"

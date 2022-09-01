@@ -26,7 +26,7 @@
 
 <style>
 @media print {
-	.btn, .kesu1, .kesu2, .kesu3, .kesu4 {
+	.btn, .printdelete1, .printdelete2, .printdelete3, .printdelete4 {
 		display: none;
 	}
 }
@@ -47,7 +47,7 @@
 
 		<div class="row">
 			<div class="col-md-12">
-				<div class="kesu1">
+				<div class="printdelete1">
 					<div class="d-flex justify-content-center">
 						<div class="mx-1 mb-3">
 							<label for="formName">牛の名前</label><input id="cowName" type="text"
@@ -92,7 +92,7 @@
 								<th>妊娠鑑定可能日 <i class="fa-solid fa-sort"></i></th>
 								<th>分娩予定日 <i class="fa-solid fa-sort"></i></th>
 								<th>品種 <i class="fa-solid fa-sort"></i></th>
-								<th class="kesu2">操作</th>
+								<th class="printdelete2">操作</th>
 							</tr>
 						</thead>
 					</table>
@@ -105,7 +105,7 @@
 						<td class="ptday"></td>
 						<td class="birthday"></td>
 						<td class="variety"></td>
-						<td class="kesu3"><button
+						<td class="printdelete3"><button
 								class="del btn btn-outline-danger py-1">削除</button></td>
 					</tr>
 				</template>
@@ -118,7 +118,7 @@
 					</button>
 				</div>
 
-				<div class="kesu4">
+				<div class="printdelete4">
 					<div class="text-center mb-5">
 						<a class="link-primary" href="<%=request.getContextPath()%>/login">ログインページへ戻る</a>
 					</div>
