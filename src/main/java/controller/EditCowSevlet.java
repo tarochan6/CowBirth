@@ -22,7 +22,7 @@ import domain.Variety;
 @WebServlet("/user/editCow")
 public class EditCowSevlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -47,6 +47,7 @@ public class EditCowSevlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		
 		Cow cows = new Cow();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -69,5 +70,6 @@ public class EditCowSevlet extends HttpServlet {
 		}
 
 		response.sendRedirect(request.getContextPath() + "/user/index");
+
 	}
 }

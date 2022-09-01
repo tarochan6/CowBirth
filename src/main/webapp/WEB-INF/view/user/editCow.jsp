@@ -58,7 +58,7 @@
 							id="formVariety" class="form-control">
 							<c:forEach items="${varietyList}" var="variety">
 								<option value="<c:out value="${variety.id}" />"
-									<c:out value="${variety.id == varietyId ? 'selected' : ''}" />>
+									<c:out value="${variety.id == cow.varietyId ? 'selected' : ''}" />>
 									<c:out value="${variety.name}" />
 								</option>
 							</c:forEach>
