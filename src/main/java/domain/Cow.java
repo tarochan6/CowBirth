@@ -37,8 +37,8 @@ public class Cow {
 	public Integer getVarietyId() {
 		return varietyId;
 	}
-	public void setVarietyId(Integer variety) {
-		this.varietyId = variety;
+	public void setVarietyId(Integer varietyId) {
+		this.varietyId = varietyId;
 	}
 	public Date getAiDay() {
 		return aiDay;
