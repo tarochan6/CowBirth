@@ -35,7 +35,7 @@
 </head>
 <body>
 	<div class="container mt-5">
-		<h1 class="logo text-center mb-0 fw-normal">
+		<h1 class="logo text-center mb-0 fw-normal text-nowrap">
 			<i class="fa-solid fa-cow"></i>CowBirthdaylist
 		</h1>
 
@@ -49,7 +49,7 @@
 			<div class="col-md-12">
 				<div class="printdelete1">
 					<div class="d-flex justify-content-center">
-						<div class="mx-1 mb-3">
+						<div class="mx-1 mb-3　text-nowrap">
 							<label for="formName">牛の名前</label><input id="cowName" type="text"
 								class="form-control">
 						</div>

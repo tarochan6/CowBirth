@@ -19,7 +19,7 @@
   <div class="row">
     <div class="col-lg-4 offset-lg-4">
       <form action="" method="post">
-      <h1 class="logo text-center mb-3 fw-normal"><i class="fa-solid fa-cow"></i>CowBirthdaylist</h1>
+      <h1 class="logo text-center mb-3 fw-normal text-nowrap"><i class="fa-solid fa-cow "></i>CowBirthdaylist</h1>
       <h2 class="text-center">ユーザー登録</h2>
       <c:if test="${!empty errors}">
       <div class="alert alert-danger" role="alert">

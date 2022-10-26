@@ -21,7 +21,7 @@
 		<div class="row">
 			<div class="col-lg-4 offset-lg-4">
 				<form action="" method="post">
-			  <h1 class="logo text-center mb-3 fw-normal"><i class="fa-solid fa-cow"></i>CowBirthdaylist</h1>
+			  <h1 class="logo text-center mb-3 fw-normal text-nowrap"><i class="fa-solid fa-cow"></i>CowBirthdaylist</h1>
 					<c:if test="${error}">
 						<div class="alert alert-danger" role="alert">
 							ログインIDまたはパスワードが間違っています。</div>
